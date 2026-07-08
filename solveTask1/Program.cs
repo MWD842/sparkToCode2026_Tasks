@@ -55,33 +55,54 @@
             //}
 
             // TASK 5: Write a C# program that takes user input to check the grade of a student based on their score. Use a switch statement to display the corresponding grade (A, B, C, D, F) and a message indicating whether the student passed or failed.
-            Console.WriteLine("Enter your grade: ");
-            char grade = char.Parse(Console.ReadLine());
-            switch (grade) {
-                case 'A':
-                case 'a':
-                    Console.WriteLine("Excellent!");
-                    break;
-                case 'B':
-                case 'b':
-                    Console.WriteLine("Very Good!");
-                    break;
-                case 'C':
-                case 'c':
-                    Console.WriteLine("Good!");
-                    break;
-                case 'D':
-                case 'd':   
-                    Console.WriteLine("Pass!");
-                    break;
-                case 'F':
-                case 'f':
-                    Console.WriteLine("Fail!");
-                    break;
-                default: Console.WriteLine("Invalid grade.");
-                    break;
+            //Console.WriteLine("Enter your grade: ");
+            //char grade = char.Parse(Console.ReadLine());
+            //switch (grade) {
+            //    case 'A':
+            //    case 'a':
+            //        Console.WriteLine("Excellent!");
+            //        break;
+            //    case 'B':
+            //    case 'b':
+            //        Console.WriteLine("Very Good!");
+            //        break;
+            //    case 'C':
+            //    case 'c':
+            //        Console.WriteLine("Good!");
+            //        break;
+            //    case 'D':
+            //    case 'd':   
+            //        Console.WriteLine("Pass!");
+            //        break;
+            //    case 'F':
+            //    case 'f':
+            //        Console.WriteLine("Fail!");
+            //        break;
+            //    default: Console.WriteLine("Invalid grade.");
+            //        break;
 
-            }
+            //}
+
+            // TASK 6: Write a C# program that takes user input for a temperature in Celsius and converts it to Fahrenheit. Display the result to the user.
+            Console.WriteLine("Enter a temperature in Celsius: ");
+            int celsius = int.Parse(Console.ReadLine());
+            int fahrenheit = (celsius * 9 / 5) + 32;
+            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
+            switch (celsius)
+            {
+                case int n when (n < 10):
+                    Console.WriteLine("The temperature is COLD");
+                    break;
+                case int n when (n >= 10 && n <= 30):
+                    Console.WriteLine("The temperature is Mild");
+                    break;
+                case int n when (n > 30):
+                    Console.WriteLine("The temperature is HOT");
+                    break;
+                default:
+                    Console.WriteLine("Invalid temperature.");
+                    break; 
+            } 
 
         }
     }
