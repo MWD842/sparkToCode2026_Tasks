@@ -305,76 +305,122 @@
             //} 
 
             // TASK 13: Write a C# program that takes user input for the lengths of the three sides of a triangle. Determine the type of triangle (equilateral, isosceles, or scalene) based on the side lengths and display the result to the user.
-            Console.WriteLine("Enter the first side of the triangle: ");
-            double side1 = double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the second side of the triangle: ");
-            double side2 = double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the third side of the triangle: ");
-            double side3 = double.Parse(Console.ReadLine());
-            if (side1 == side2 && side2 > side3 || side1 == side3 && side1 > side2 || side2 == side3 && side2 > side1)
+            //Console.WriteLine("Enter the first side of the triangle: ");
+            //double side1 = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the second side of the triangle: ");
+            //double side2 = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the third side of the triangle: ");
+            //double side3 = double.Parse(Console.ReadLine());
+            //if (side1 == side2 && side2 > side3 || side1 == side3 && side1 > side2 || side2 == side3 && side2 > side1)
+            //{
+            //    Console.WriteLine("The triangle is isosceles.");
+            //}
+            //else if (side1 == side2 && side2 == side3)
+            //{
+            //    Console.WriteLine("The triangle is equilateral.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The triangle is scalene.");
+            //}
+
+            ////TASK 14: Write a C# program that takes user input for a product code (1: Headphone, 2: Keyboard, or 3: Mouse), the quantity of the product, and whether the user has a discount coupon. Calculate the total price based on the product code, quantity, and any applicable discounts. Display the final amount to the user.
+            //Console.WriteLine("Enter a product code (1: Headphone, 2: Keyboard, or 3: Mouse): ");
+            //int productCode = int.Parse(Console.ReadLine());
+
+            //Console.WriteLine("Enter the quantity: ");
+            //int quantity = int.Parse(Console.ReadLine());
+
+            //Console.WriteLine("Do you have a discount coupon? (yes/no): ");
+            //string couponAnswer = Console.ReadLine().Trim().ToLower();
+            //bool hasCoupon = couponAnswer == "yes";
+
+            //double unitPrice;
+            //string productName;
+
+            //switch (productCode)
+            //{
+            //    case 1:
+            //        productName = "Headphone";
+            //        unitPrice = 8.500;
+            //        break;
+            //    case 2:
+            //        productName = "Keyboard";
+            //        unitPrice = 12.000;
+            //        break;
+            //    case 3:
+            //        productName = "Mouse";
+            //        unitPrice = 5.000;
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid product code.");
+            //        return;
+            //}
+
+            //double subtotal = unitPrice * quantity;
+
+            //double discount = 0;
+            //if (hasCoupon && subtotal > 20)
+            //{
+            //    discount = subtotal * 0.10;
+            //}
+
+            //double afterDiscount = subtotal - discount;
+            //double tax = afterDiscount * 0.05;
+            //double total = afterDiscount + tax;
+
+            //Console.WriteLine("Product: " + productName + " Price: " + unitPrice + " OMR");
+            //Console.WriteLine("Quantity: " + quantity);
+            //Console.WriteLine("Subtotal: " + subtotal + " OMR");
+            //Console.WriteLine("Discount: " + discount + " OMR");
+            //Console.WriteLine("Tax: " + tax + " OMR");
+            //Console.WriteLine("Total: " + total + " OMR");
+
+            // TASK 15: Write a C# program that takes user input for the applicant's program type (Science or Arts), GPA, entrance exam score, and whether they have an extracurricular achievement. Based on the following criteria, determine if the applicant is admitted, conditionally admitted, or not admitted.
+            Console.WriteLine("Enter the program type (S: Science, A: Arts): ");
+            char programType = Convert.ToChar(Console.ReadLine().Trim().ToUpper());
+            Console.WriteLine("Enter the applicant's GPA (out of 4.0): ");
+            double gpa = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the entrance exam score (out of 100): ");
+            double examScore = double.Parse(Console.ReadLine());
+            Console.WriteLine("Do you have an extracurricular achievement? (yes/no): ");
+            string extracurricularAnswer = Console.ReadLine().Trim().ToLower();
+            bool hasExtracurricular = extracurricularAnswer == "yes";
+
+            bool meetsRequirements;
+            string programName;
+
+            switch (programType)
             {
-                Console.WriteLine("The triangle is isosceles.");
-            }
-            else if (side1 == side2 && side2 == side3)
-            {
-                Console.WriteLine("The triangle is equilateral.");
-            }
-            else
-            {
-                Console.WriteLine("The triangle is scalene.");
-            }
-
-            //TASK 14: Write a C# program that takes user input for a product code (1: Headphone, 2: Keyboard, or 3: Mouse), the quantity of the product, and whether the user has a discount coupon. Calculate the total price based on the product code, quantity, and any applicable discounts. Display the final amount to the user.
-            Console.WriteLine("Enter a product code (1: Headphone, 2: Keyboard, or 3: Mouse): ");
-            int productCode = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the quantity: ");
-            int quantity = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Do you have a discount coupon? (yes/no): ");
-            string couponAnswer = Console.ReadLine().Trim().ToLower();
-            bool hasCoupon = couponAnswer == "yes";
-
-            double unitPrice;
-            string productName;
-
-            switch (productCode)
-            {
-                case 1:
-                    productName = "Headphone";
-                    unitPrice = 8.500;
+                case 'S':
+                    programName = "Science";
+                    meetsRequirements = (gpa >= 3.0 && examScore >= 75);
                     break;
-                case 2:
-                    productName = "Keyboard";
-                    unitPrice = 12.000;
-                    break;
-                case 3:
-                    productName = "Mouse";
-                    unitPrice = 5.000;
+                case 'A':
+                    programName = "Arts";
+                    meetsRequirements = (gpa >= 2.5 && examScore >= 60);
                     break;
                 default:
-                    Console.WriteLine("Invalid product code.");
+                    Console.WriteLine("Invalid program type.");
                     return;
             }
 
-            double subtotal = unitPrice * quantity;
-
-            double discount = 0;
-            if (hasCoupon && subtotal > 20)
+            string result;
+            if (meetsRequirements)
             {
-                discount = subtotal * 0.10;
+                result = "Admitted";
+            }
+            else if (hasExtracurricular)
+            {
+                result = "Conditionally Admitted";
+            }
+            else
+            {
+                result = "Not Admitted";
             }
 
-            double afterDiscount = subtotal - discount;
-            double tax = afterDiscount * 0.05;
-            double total = afterDiscount + tax;
-
-            Console.WriteLine("Product: " + productName + " Price: " + unitPrice + " OMR");
-            Console.WriteLine("Quantity: " + quantity);
-            Console.WriteLine("Subtotal: " + subtotal + " OMR");
-            Console.WriteLine("Discount: " + discount + " OMR");
-            Console.WriteLine("Tax: " + tax + " OMR");
-            Console.WriteLine("Total: " + total + " OMR");
+            Console.WriteLine("Program: " + programName);
+            Console.WriteLine("Result: " + result);
 
         }
     }
