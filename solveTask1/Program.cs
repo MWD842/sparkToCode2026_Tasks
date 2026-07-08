@@ -84,26 +84,46 @@
             //}
 
             // TASK 6: Write a C# program that takes user input for a temperature in Celsius and converts it to Fahrenheit. Display the result to the user.
-            Console.WriteLine("Enter a temperature in Celsius: ");
-            int celsius = int.Parse(Console.ReadLine());
-            int fahrenheit = (celsius * 9 / 5) + 32;
-            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
-            switch (celsius)
-            {
-                case int n when (n < 10):
-                    Console.WriteLine("The temperature is COLD");
-                    break;
-                case int n when (n >= 10 && n <= 30):
-                    Console.WriteLine("The temperature is Mild");
-                    break;
-                case int n when (n > 30):
-                    Console.WriteLine("The temperature is HOT");
-                    break;
-                default:
-                    Console.WriteLine("Invalid temperature.");
-                    break; 
-            } 
+            //Console.WriteLine("Enter a temperature in Celsius: ");
+            //int celsius = int.Parse(Console.ReadLine());
+            //int fahrenheit = (celsius * 9 / 5) + 32;
+            //Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
+            //switch (celsius)
+            //{
+            //    case int n when (n < 10):
+            //        Console.WriteLine("The temperature is COLD");
+            //        break;
+            //    case int n when (n >= 10 && n <= 30):
+            //        Console.WriteLine("The temperature is Mild");
+            //        break;
+            //    case int n when (n > 30):
+            //        Console.WriteLine("The temperature is HOT");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid temperature.");
+            //        break; 
+            //} 
 
+            // TASK 7: Write a C# program that takes user input for age and determines the ticket category and price based on the following criteria.
+            Console.WriteLine("Enter the age: ");
+            int age = int.Parse(Console.ReadLine());
+            if (age >= 0 && age <= 12)
+            {
+                Console.WriteLine("Ticket Category: Children, Ticket Price: 2.000 OMR");
+            }
+            else if (age >= 13 && age <= 59)
+            {
+                Console.WriteLine("Ticket Category: Adult, Ticket Price: 5.000 OMR");
+            }
+            else if (age >= 60)
+            {
+                Console.WriteLine("Ticket Category: Senior, Ticket Price: 3.000 OMR");
+            }
+            else
+            {
+                Console.WriteLine("Invalid age.");
+
+            }
         }
     }
 }
