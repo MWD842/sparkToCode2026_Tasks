@@ -323,8 +323,59 @@
             {
                 Console.WriteLine("The triangle is scalene.");
             }
+
+            //TASK 14: Write a C# program that takes user input for a product code (1: Headphone, 2: Keyboard, or 3: Mouse), the quantity of the product, and whether the user has a discount coupon. Calculate the total price based on the product code, quantity, and any applicable discounts. Display the final amount to the user.
+            Console.WriteLine("Enter a product code (1: Headphone, 2: Keyboard, or 3: Mouse): ");
+            int productCode = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the quantity: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Do you have a discount coupon? (yes/no): ");
+            string couponAnswer = Console.ReadLine().Trim().ToLower();
+            bool hasCoupon = couponAnswer == "yes";
+
+            double unitPrice;
+            string productName;
+
+            switch (productCode)
+            {
+                case 1:
+                    productName = "Headphone";
+                    unitPrice = 8.500;
+                    break;
+                case 2:
+                    productName = "Keyboard";
+                    unitPrice = 12.000;
+                    break;
+                case 3:
+                    productName = "Mouse";
+                    unitPrice = 5.000;
+                    break;
+                default:
+                    Console.WriteLine("Invalid product code.");
+                    return;
+            }
+
+            double subtotal = unitPrice * quantity;
+
+            double discount = 0;
+            if (hasCoupon && subtotal > 20)
+            {
+                discount = subtotal * 0.10;
+            }
+
+            double afterDiscount = subtotal - discount;
+            double tax = afterDiscount * 0.05;
+            double total = afterDiscount + tax;
+
+            Console.WriteLine("Product: " + productName + " Price: " + unitPrice + " OMR");
+            Console.WriteLine("Quantity: " + quantity);
+            Console.WriteLine("Subtotal: " + subtotal + " OMR");
+            Console.WriteLine("Discount: " + discount + " OMR");
+            Console.WriteLine("Tax: " + tax + " OMR");
+            Console.WriteLine("Total: " + total + " OMR");
+
         }
-
-
     }
 }
