@@ -29,15 +29,29 @@
             //Console.WriteLine("Perimeter: " + perimeter);
 
             // TASK 3: Write a C# program that takes user input for a number and checks if it is even or odd. Display an appropriate message based on the result.
-            Console.WriteLine("Enter the a number: "); 
-            int number = int.Parse(Console.ReadLine());
-            if (number % 2 == 0)
+            //Console.WriteLine("Enter the a number: "); 
+            //int number = int.Parse(Console.ReadLine());
+            //if (number % 2 == 0)
+            //{
+            //    Console.WriteLine("The number is even.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The number is odd.");
+            //}
+
+            // TASK 4: Write a C# program that takes user input for their age and checks if they are eligible to vote (age >= 18). Display an appropriate message based on the eligibility.
+            Console.WriteLine("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Do you have a vaild national ID? (yes/no): ");
+            string hasValidId = Console.ReadLine();
+            if (age >= 18 && hasValidId == "yes")
             {
-                Console.WriteLine("The number is even.");
+                Console.WriteLine("You are eligible to vote.");
             }
             else
             {
-                Console.WriteLine("The number is odd.");
+                Console.WriteLine("You are not eligible to vote.");
             }
         }
     }
