@@ -260,50 +260,71 @@
             //} 
 
             // TASK 12: Write a C# program that takes user input for a region code (A, B, or C) and the weight of a package in kilograms. Based on the region code and weight, calculate the shipping cost using the following criteria.
-            Console.WriteLine("Enter a region code (A: Local, B: Regional, C: International): ");
-            string regionCode = Console.ReadLine().Trim().ToUpper();
-            Console.WriteLine("Enter the package weight in kilograms: ");
-            double weight = double.Parse(Console.ReadLine());
-            double shippingCost = 0;
-            bool isValidRegion = true;
-            switch (regionCode)
+            //Console.WriteLine("Enter a region code (A: Local, B: Regional, C: International): ");
+            //string regionCode = Console.ReadLine().Trim().ToUpper();
+            //Console.WriteLine("Enter the package weight in kilograms: ");
+            //double weight = double.Parse(Console.ReadLine());
+            //double shippingCost = 0;
+            //bool isValidRegion = true;
+            //switch (regionCode)
+            //{
+            //    case "A":
+            //        shippingCost = 1.000; 
+            //        break;
+            //    case "B":
+            //        shippingCost = 3.000;
+            //        break;
+            //    case "C":
+            //        shippingCost = 7.000;
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid region code.");
+            //        isValidRegion = false;
+            //        break;
+            //}
+            //if (isValidRegion)
+            //{
+            //    double extraCost = 0;
+
+            //    if (weight > 10)
+            //    {
+            //        extraCost = 5.000;
+            //    }
+            //    else if (weight > 5 && weight < 10)
+            //    {
+            //        extraCost = 2.000;
+            //    }
+            //    else
+            //    {
+            //        extraCost = 0;
+            //    }
+            //    double totalCost = shippingCost + extraCost;
+            //    Console.WriteLine("Base cost: " + shippingCost + " OMR");
+            //    Console.WriteLine("Extra cost: " + extraCost + " OMR");
+            //    Console.WriteLine("Total shipping cost: " + totalCost + " OMR");
+            //} 
+
+            // TASK 13: Write a C# program that takes user input for the lengths of the three sides of a triangle. Determine the type of triangle (equilateral, isosceles, or scalene) based on the side lengths and display the result to the user.
+            Console.WriteLine("Enter the first side of the triangle: ");
+            double side1 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second side of the triangle: ");
+            double side2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the third side of the triangle: ");
+            double side3 = double.Parse(Console.ReadLine());
+            if (side1 == side2 && side2 > side3 || side1 == side3 && side1 > side2 || side2 == side3 && side2 > side1)
             {
-                case "A":
-                    shippingCost = 1.000; 
-                    break;
-                case "B":
-                    shippingCost = 3.000;
-                    break;
-                case "C":
-                    shippingCost = 7.000;
-                    break;
-                default:
-                    Console.WriteLine("Invalid region code.");
-                    isValidRegion = false;
-                    break;
+                Console.WriteLine("The triangle is isosceles.");
             }
-            if (isValidRegion)
+            else if (side1 == side2 && side2 == side3)
             {
-                double extraCost = 0;
-
-                if (weight > 10)
-                {
-                    extraCost = 5.000;
-                }
-                else if (weight > 5 && weight < 10)
-                {
-                    extraCost = 2.000;
-                }
-                else
-                {
-                    extraCost = 0;
-                }
-                double totalCost = shippingCost + extraCost;
-                Console.WriteLine("Base cost: " + shippingCost + " OMR");
-                Console.WriteLine("Extra cost: " + extraCost + " OMR");
-                Console.WriteLine("Total shipping cost: " + totalCost + " OMR");
-            } 
-
+                Console.WriteLine("The triangle is equilateral.");
+            }
+            else
+            {
+                Console.WriteLine("The triangle is scalene.");
+            }
         }
+
+
     }
 }
