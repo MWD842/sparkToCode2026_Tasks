@@ -227,36 +227,81 @@
             //}
 
             // TASK 11: Write a C# program that takes user input for their age, monthly income, and whether they have an existing loan. Based on the following criteria, determine if the user is eligible for a loan.
-            Console.WriteLine("Enter your age: ");
-            int age = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your monthly income: ");
-            double income = double.Parse(Console.ReadLine());
-            Console.WriteLine("Do you have an existing loan (yes/no): ");
-            string hasExistingLoan = Console.ReadLine().Trim().ToLower();
+            //Console.WriteLine("Enter your age: ");
+            //int age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your monthly income: ");
+            //double income = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Do you have an existing loan (yes/no): ");
+            //string hasExistingLoan = Console.ReadLine().Trim().ToLower();
 
-            List<string> reasons = new List<string>();
+            //List<string> reasons = new List<string>();
 
-            if (age < 21 || age > 60)
-                reasons.Add("age restrictions");
+            //if (age < 21 || age > 60)
+            //    reasons.Add("age restrictions");
 
-            if (income < 400)
-                reasons.Add("insufficient income");
+            //if (income < 400)
+            //    reasons.Add("insufficient income");
 
-            if (hasExistingLoan == "yes")
-                reasons.Add("existing loan");
+            //if (hasExistingLoan == "yes")
+            //    reasons.Add("existing loan");
 
-            if (reasons.Count == 0)
+            //if (reasons.Count == 0)
+            //{
+            //    Console.WriteLine("You are eligible for a loan.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("You are not eligible for a loan.");
+            //    Console.WriteLine("Reasons for ineligibility:");
+            //    foreach (string reason in reasons)
+            //    {
+            //        Console.WriteLine("- " + reason);
+            //    }
+            //} 
+
+            // TASK 12: Write a C# program that takes user input for a region code (A, B, or C) and the weight of a package in kilograms. Based on the region code and weight, calculate the shipping cost using the following criteria.
+            Console.WriteLine("Enter a region code (A: Local, B: Regional, C: International): ");
+            string regionCode = Console.ReadLine().Trim().ToUpper();
+            Console.WriteLine("Enter the package weight in kilograms: ");
+            double weight = double.Parse(Console.ReadLine());
+            double shippingCost = 0;
+            bool isValidRegion = true;
+            switch (regionCode)
             {
-                Console.WriteLine("You are eligible for a loan.");
+                case "A":
+                    shippingCost = 1.000; 
+                    break;
+                case "B":
+                    shippingCost = 3.000;
+                    break;
+                case "C":
+                    shippingCost = 7.000;
+                    break;
+                default:
+                    Console.WriteLine("Invalid region code.");
+                    isValidRegion = false;
+                    break;
             }
-            else
+            if (isValidRegion)
             {
-                Console.WriteLine("You are not eligible for a loan.");
-                Console.WriteLine("Reasons for ineligibility:");
-                foreach (string reason in reasons)
+                double extraCost = 0;
+
+                if (weight > 10)
                 {
-                    Console.WriteLine("- " + reason);
+                    extraCost = 5.000;
                 }
+                else if (weight > 5 && weight < 10)
+                {
+                    extraCost = 2.000;
+                }
+                else
+                {
+                    extraCost = 0;
+                }
+                double totalCost = shippingCost + extraCost;
+                Console.WriteLine("Base cost: " + shippingCost + " OMR");
+                Console.WriteLine("Extra cost: " + extraCost + " OMR");
+                Console.WriteLine("Total shipping cost: " + totalCost + " OMR");
             } 
 
         }
