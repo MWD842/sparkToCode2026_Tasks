@@ -126,23 +126,23 @@
             //}
 
             // TASK 8: Write a C# program that takes user input for the total bill amount and checks if the user is eligible for a discount based on their membership status. If the user is a member and the total bill amount is greater than $20, apply a 15% discount and display the final amount. Otherwise, display the total bill amount without any discount.
-            Console.WriteLine("Enter the total bill amount: ");
-            double totalBill = double.Parse(Console.ReadLine());
-            Console.WriteLine(" Are you a member of the loyalty program? (yes/no): ");
-            string isMember = Console.ReadLine();
-            if (isMember == "yes" && totalBill > 20)
-            {
-                double discount = totalBill * 0.15;
-                double finalAmount = totalBill - discount;
-                Console.WriteLine("Total bill amount: " + totalBill);
-                Console.WriteLine("You are eligible for a 15% discount.");
-                Console.WriteLine("Final amount after discount: " + finalAmount);
-            }
-            else
-            {
-                Console.WriteLine("You are not eligible for a discount.");
-                Console.WriteLine("Total bill amount: " + totalBill);
-            }
+            //Console.WriteLine("Enter the total bill amount: ");
+            //double totalBill = double.Parse(Console.ReadLine());
+            //Console.WriteLine(" Are you a member of the loyalty program? (yes/no): ");
+            //string isMember = Console.ReadLine();
+            //if (isMember == "yes" && totalBill > 20)
+            //{
+            //    double discount = totalBill * 0.15;
+            //    double finalAmount = totalBill - discount;
+            //    Console.WriteLine("Total bill amount: " + totalBill);
+            //    Console.WriteLine("You are eligible for a 15% discount.");
+            //    Console.WriteLine("Final amount after discount: " + finalAmount);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("You are not eligible for a discount.");
+            //    Console.WriteLine("Total bill amount: " + totalBill);
+            //}
 
             // TASK 9: Write a C# program that takes user input for a number from 1 to 7 and displays the corresponding day of the week (e.g., 1 = Sunday, 2 = Monday, etc.). Use a switch statement to determine the day based on the input.
             //Console.WriteLine("Enter a number from 1 to 7 to check the day of the week: ");
@@ -176,55 +176,89 @@
             //} 
 
             // TASK 10: Write a C# program that takes user input for two numbers and an operation (addition, subtraction, multiplication, division, modulus). Perform the specified operation on the numbers and display the result to the user.
-            Console.WriteLine("Enter the first number: ");
-            int firstNumber = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the second number: ");
-            int secondNumber = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the operation (Addition, Subtraction, Multiplication, Division, Modulus): ");
-            string operation = Console.ReadLine();
-            if (operation == "Addition")
+            //Console.WriteLine("Enter the first number: ");
+            //int firstNumber = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the second number: ");
+            //int secondNumber = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the operation (Addition, Subtraction, Multiplication, Division, Modulus): ");
+            //string operation = Console.ReadLine();
+            //if (operation == "Addition")
+            //{
+            //    int result = firstNumber + secondNumber;
+            //    Console.WriteLine("Result: " + result);
+            //}
+            //else if (operation == "Subtraction ")
+            //{
+            //    int result = firstNumber - secondNumber;
+            //    Console.WriteLine("Result: " + result);
+            //}
+            //else if (operation == "Multiplication")
+            //{
+            //    int result = firstNumber * secondNumber;
+            //    Console.WriteLine("Result: " + result);
+            //}
+            //else if (operation == "Division")
+            //{
+            //    if (secondNumber != 0)
+            //    {
+            //        double result = (double)firstNumber / secondNumber;
+            //        Console.WriteLine("Result: " + result);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Error: Division by zero is not allowed.");
+            //    }
+            //}
+            //else if (operation == "Modulus")
+            //{
+            //    if (secondNumber != 0)
+            //    {
+            //        int result = firstNumber % secondNumber;
+            //        Console.WriteLine("Result: " + result);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Error: Division by zero is not allowed.");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid operation.");
+            //}
+
+            // TASK 11: Write a C# program that takes user input for their age, monthly income, and whether they have an existing loan. Based on the following criteria, determine if the user is eligible for a loan.
+            Console.WriteLine("Enter your age: ");
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your monthly income: ");
+            double income = double.Parse(Console.ReadLine());
+            Console.WriteLine("Do you have an existing loan (yes/no): ");
+            string hasExistingLoan = Console.ReadLine().Trim().ToLower();
+
+            List<string> reasons = new List<string>();
+
+            if (age < 21 || age > 60)
+                reasons.Add("age restrictions");
+
+            if (income < 400)
+                reasons.Add("insufficient income");
+
+            if (hasExistingLoan == "yes")
+                reasons.Add("existing loan");
+
+            if (reasons.Count == 0)
             {
-                int result = firstNumber + secondNumber;
-                Console.WriteLine("Result: " + result);
-            }
-            else if (operation == "Subtraction ")
-            {
-                int result = firstNumber - secondNumber;
-                Console.WriteLine("Result: " + result);
-            }
-            else if (operation == "Multiplication")
-            {
-                int result = firstNumber * secondNumber;
-                Console.WriteLine("Result: " + result);
-            }
-            else if (operation == "Division")
-            {
-                if (secondNumber != 0)
-                {
-                    double result = (double)firstNumber / secondNumber;
-                    Console.WriteLine("Result: " + result);
-                }
-                else
-                {
-                    Console.WriteLine("Error: Division by zero is not allowed.");
-                }
-            }
-            else if (operation == "Modulus")
-            {
-                if (secondNumber != 0)
-                {
-                    int result = firstNumber % secondNumber;
-                    Console.WriteLine("Result: " + result);
-                }
-                else
-                {
-                    Console.WriteLine("Error: Division by zero is not allowed.");
-                }
+                Console.WriteLine("You are eligible for a loan.");
             }
             else
             {
-                Console.WriteLine("Invalid operation.");
+                Console.WriteLine("You are not eligible for a loan.");
+                Console.WriteLine("Reasons for ineligibility:");
+                foreach (string reason in reasons)
+                {
+                    Console.WriteLine("- " + reason);
+                }
             } 
+
         }
     }
 }
