@@ -100,22 +100,38 @@
 
             /////////
 
-            //Task 7: Write a program that takes two names as input and checks if they are matching. The program should ignore case and whitespace when comparing the names.
-            Console.WriteLine("Enter your name: ");
-            string name1 = Console.ReadLine().ToUpper().Trim();
-            Console.WriteLine("Enter your name: ");
-            string name2 = Console.ReadLine().ToUpper().Trim();
-            if (name1.Equals(name2))
+            //Task 7: Write a program that displays a menu with three options: "1. Say Hello", "2. Show Current Time-of-day", and "3. Exit". The program should prompt the user to enter their choice and perform the corresponding action. If the user enters an invalid choice, the program should throw an exception and display an error message.
+            int choice = 0;
+            while (true)
             {
-                Console.WriteLine("The names are matching.");
-            }
-            else
-            {
-                Console.WriteLine("The names are not matching.");
+                Console.WriteLine("Menu:\n1. Say Hello\n2. Show Current Time-of-day\n3. Exit");
+                Console.Write("Enter your choice (1-3): ");
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("\nHello!\n");
+                            break;
+                        case 2:
+                            Console.WriteLine($"\nCurrent Time-of-day: {DateTime.Now.ToString("hh:mm tt")}\n");
+                            break;
+                        case 3:
+                            Console.WriteLine("\nExit.");
+                            return;
+                        default:
+                            Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
+                            break;
+                    }
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Invalid input format. Please enter a valid number.");
+                }
             }
 
-            /////////
-            
 
         }
     }
