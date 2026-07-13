@@ -36,10 +36,25 @@
             ////////
 
             // Task 4: Write a program that takes a positive whole number as input and prints the multiplication table for that number up to 10.
-            Console.WriteLine("Enter the number of days of a free trial: ");
-            int days = int.Parse(Console.ReadLine());
-            DateTime today = DateTime.Today.AddDays(days);
-            Console.WriteLine("The free trial will end on: " + today.ToString("D"));
+            //Console.WriteLine("Enter the number of days of a free trial: ");
+            //int days = int.Parse(Console.ReadLine());
+            //DateTime today = DateTime.Today.AddDays(days);
+            //Console.WriteLine("The free trial will end on: " + today.ToString("D"));
+
+            ////////
+
+            // Task 5: Write a program that takes a positive whole number as input and prints the Fibonacci sequence up to that number.
+            Console.WriteLine("Enter a exam score: ");
+            double score = double.Parse(Console.ReadLine());
+            double grade = Math.Round(score);
+            if (grade >= 60)
+            {
+                Console.WriteLine("The student has passed the exam.");
+            }
+            else
+            {
+                Console.WriteLine("The student has failed the exam.");
+            }
 
             ////////
         }
