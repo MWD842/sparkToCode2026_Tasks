@@ -101,36 +101,52 @@
             /////////
 
             //Task 7: Write a program that displays a menu with three options: "1. Say Hello", "2. Show Current Time-of-day", and "3. Exit". The program should prompt the user to enter their choice and perform the corresponding action. If the user enters an invalid choice, the program should throw an exception and display an error message.
-            int choice = 0;
-            while (true)
-            {
-                Console.WriteLine("Menu:\n1. Say Hello\n2. Show Current Time-of-day\n3. Exit");
-                Console.Write("Enter your choice (1-3): ");
-                try
-                {
-                    choice = int.Parse(Console.ReadLine());
-                    switch (choice)
-                    {
-                        case 1:
-                            Console.WriteLine("\nHello!\n");
-                            break;
-                        case 2:
-                            Console.WriteLine($"\nCurrent Time-of-day: {DateTime.Now.ToString("hh:mm tt")}\n");
-                            break;
-                        case 3:
-                            Console.WriteLine("\nExit.");
-                            return;
-                        default:
-                            Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
-                            break;
-                    }
+            //int choice = 0;
+            //while (true)
+            //{
+            //    Console.WriteLine("Menu:\n1. Say Hello\n2. Show Current Time-of-day\n3. Exit");
+            //    Console.Write("Enter your choice (1-3): ");
+            //    try
+            //    {
+            //        choice = int.Parse(Console.ReadLine());
+            //        switch (choice)
+            //        {
+            //            case 1:
+            //                Console.WriteLine("\nHello!\n");
+            //                break;
+            //            case 2:
+            //                Console.WriteLine($"\nCurrent Time-of-day: {DateTime.Now.ToString("hh:mm tt")}\n");
+            //                break;
+            //            case 3:
+            //                Console.WriteLine("\nExit.");
+            //                return;
+            //            default:
+            //                Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
+            //                break;
+            //        }
 
-                }
-                catch (FormatException)
+            //    }
+            //    catch (FormatException)
+            //    {
+            //        Console.WriteLine("Error: Invalid input format. Please enter a valid number.");
+            //    }
+            //}
+
+            /////////
+
+            //Task 8: Write a program that takes a positive whole number as input and calculates the sum of all even numbers from 0 to that number.
+            Console.WriteLine("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+            int evenSum = 0;
+            for (int i = 0; i <= number; i++)
+            {
+                if (i % 2 == 0)
                 {
-                    Console.WriteLine("Error: Invalid input format. Please enter a valid number.");
+                    evenSum += i;
                 }
             }
+            Console.WriteLine("The sum of even numbers from 0 to {0} is: {1}", number, evenSum);
+
 
 
         }
