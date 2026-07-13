@@ -54,6 +54,12 @@
                 }
             } while (true);
         }
+
+        // TASK 5
+        public static bool IsEven(int num)
+        {
+            return num % 2 == 0;
+        }
         static void Main(string[] args)
         {
             // TASK 1
@@ -80,7 +86,20 @@
             /////////
 
             // TASK 4
-            DisplayMenu();
+            //DisplayMenu();
+
+            // TASK 5
+            Console.WriteLine("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            if (IsEven(num))
+            {
+                Console.WriteLine("The number is even");
+            }
+            else
+            {
+                Console.WriteLine("The number is odd");
+            }
         }
     }
 }
