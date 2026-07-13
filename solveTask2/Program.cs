@@ -16,15 +16,27 @@
             /////////
 
             //Task 2: Write a program that takes a positive whole number N as input and calculates the sum of all whole numbers from 1 to N.
-            Console.WriteLine("Enter a positive whole number N: ");
-            int n = int.Parse(Console.ReadLine());
-            int sum = 0;
-            for (int i = 1; i <= n; i++)
+            //Console.WriteLine("Enter a positive whole number N: ");
+            //int n = int.Parse(Console.ReadLine());
+            //int sum = 0;
+            //for (int i = 1; i <= n; i++)
+            //{
+            //    //Console.WriteLine(i);
+            //    sum = sum + i;
+            //}
+            //Console.WriteLine($"The sum of all whole numbers from 1 to {n} is: {sum}");
+
+            /////////
+
+            //Task 3: Write a program that takes a positive whole number as input and prints the multiplication table for that number up to 10.
+            Console.WriteLine("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+            int multi;
+            for (int i = 1; i <= 10; i++)
             {
-                //Console.WriteLine(i);
-                sum = sum + i;
+                multi = number * i;
+                Console.WriteLine($"{number} x {i} = {multi}");
             }
-            Console.WriteLine($"The sum of all whole numbers from 1 to {n} is: {sum}");
 
             /////////
         }
