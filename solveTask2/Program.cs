@@ -58,6 +58,26 @@
             }
 
             /////////
+
+            //Task 5: Write a program that generates a number and prompts the user to guess the number. The program should give hints if the guess is too high or too low, and continue until the user guesses the correct number.
+            Console.WriteLine("Guess the number: ");
+            int secretNumber = 30; //int secretNumber = new Random().Next(1, 101); // Generates a random number between 1 and 100
+            int guess;
+            do
+            {
+                guess = int.Parse(Console.ReadLine());
+                if (guess < secretNumber)
+                {
+                    Console.WriteLine("Too low! Try again.");
+                }
+                else if (guess > secretNumber)
+                {
+                    Console.WriteLine("Too high! Try again.");
+                }
+            } while (guess != secretNumber);
+            Console.WriteLine("Congratulations! You guessed the number.");
+
+            ////////
         }
     }
 }
