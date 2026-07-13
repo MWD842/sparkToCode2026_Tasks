@@ -147,22 +147,70 @@
             //////////
 
             // TASK 7
-            List<int> scores = new List<int>();
+            //List<int> scores = new List<int>();
 
-            for (int i = 0; i < 5; i++)
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.Write($"Enter score {i + 1}: ");
+            //    int score = int.Parse(Console.ReadLine());
+            //    scores.Add(score);
+            //}
+
+            //scores.Sort();
+            //scores.Reverse();
+
+            //Console.WriteLine("\n=== PODIUM ===");
+            //Console.WriteLine($"1st place: {scores[0]}");
+            //Console.WriteLine($"2nd place: {scores[1]}");
+            //Console.WriteLine($"3rd place: {scores[2]}");
+
+            //////////
+
+            // TASK 8
+            Stack<string> actions = new Stack<string>();
+            string input = "";
+
+            Console.WriteLine("Enter your actions. Type 'stop' to finish.");
+
+            while (input.ToLower() != "stop")
             {
-                Console.Write($"Enter score {i + 1}: ");
-                int score = int.Parse(Console.ReadLine());
-                scores.Add(score);
+                Console.Write("Action: ");
+                input = Console.ReadLine();
+
+                if (input.ToLower() != "stop")
+                {
+                    actions.Push(input);
+                }
             }
 
-            scores.Sort();
-            scores.Reverse();
+            Console.WriteLine("\n=== UNDO ===");
 
-            Console.WriteLine("\n=== PODIUM ===");
-            Console.WriteLine($"1st place: {scores[0]}");
-            Console.WriteLine($"2nd place: {scores[1]}");
-            Console.WriteLine($"3rd place: {scores[2]}");
+            for (int i = 1; i <= 2; i++)
+            {
+                if (actions.Count > 0)
+                {
+                    string undone = actions.Pop();
+                    Console.WriteLine($"Undo {i}: {undone}");
+                }
+                else
+                {
+                    Console.WriteLine($"Undo {i}: nothing left to undo.");
+                }
+            }
+
+            Console.WriteLine("\nRemaining actions on the stack:");
+            if (actions.Count == 0)
+            {
+                Console.WriteLine("(empty)");
+            }
+            else
+            {
+                foreach (string action in actions)
+                {
+                    Console.WriteLine($"- {action}");
+                }
+
+            }
         }
     }
 }
