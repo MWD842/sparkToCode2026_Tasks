@@ -29,13 +29,32 @@
             /////////
 
             //Task 3: Write a program that takes a positive whole number as input and prints the multiplication table for that number up to 10.
-            Console.WriteLine("Enter a number: ");
-            int number = int.Parse(Console.ReadLine());
-            int multi;
-            for (int i = 1; i <= 10; i++)
+            //Console.WriteLine("Enter a number: ");
+            //int number = int.Parse(Console.ReadLine());
+            //int multi;
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    multi = number * i;
+            //    Console.WriteLine($"{number} x {i} = {multi}");
+            //}
+
+            /////////
+
+            //Task 4: Write a program that prompts the user to enter a password. If the password is correct, print "Access Granted". If the password is incorrect, print "Access Denied" and prompt the user to enter the password again until the correct password is entered.
+            bool isCorrectPassword = false;
+            while (isCorrectPassword == false)
             {
-                multi = number * i;
-                Console.WriteLine($"{number} x {i} = {multi}");
+                Console.WriteLine("Enter password: ");
+                string password = Console.ReadLine();
+                if (password == "Spark2026")
+                {
+                    isCorrectPassword = true;
+                    Console.WriteLine("Access Granted");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect password. Please try again.");
+                }
             }
 
             /////////
