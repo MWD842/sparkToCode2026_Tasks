@@ -84,20 +84,38 @@
             ////////
 
             //Task 7: Write a program that takes two names as input and checks if they are matching. The program should ignore case and whitespace when comparing the names.
-            Console.WriteLine("Enter your name: ");
-            string name1 = Console.ReadLine().ToUpper().Trim();
-            Console.WriteLine("Enter your name: ");
-            string name2 = Console.ReadLine().ToUpper().Trim();
-            if (name1.Equals(name2))
+            //Console.WriteLine("Enter your name: ");
+            //string name1 = Console.ReadLine().ToUpper().Trim();
+            //Console.WriteLine("Enter your name: ");
+            //string name2 = Console.ReadLine().ToUpper().Trim();
+            //if (name1.Equals(name2))
+            //{
+            //    Console.WriteLine("The names are matching.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The names are not matching.");
+            //}
+
+            ////////
+
+            // Task 8: Write a program that takes a membership start date and the number of valid membership days as input, and checks if the membership is still valid or has expired.
+            Console.WriteLine("Enter membership start date (yyyy-MM-dd): ");
+            string startDateInput = Console.ReadLine();
+            DateTime startDate = DateTime.Parse(startDateInput);
+            Console.WriteLine("Enter the number of valid membership days: ");
+            int days = int.Parse(Console.ReadLine());
+            DateTime expiryDate = startDate.AddDays(days);
+            if (expiryDate >= DateTime.Today)
             {
-                Console.WriteLine("The names are matching.");
+                Console.WriteLine("Membership is valid until: " + expiryDate.ToString("D"));
+                Console.WriteLine("Membership status: Active");
             }
             else
             {
-                Console.WriteLine("The names are not matching.");
+                Console.WriteLine("Membership has expired on: " + expiryDate.ToString("D"));
+                Console.WriteLine("Membership status: Expired");
             }
-
-            ////////
         }
     }
 }
