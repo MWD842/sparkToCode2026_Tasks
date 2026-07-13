@@ -23,7 +23,7 @@ namespace BankingSystemApp
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
                 Console.WriteLine("6. List All Accounts");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("7. Close an Account");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -57,7 +57,7 @@ namespace BankingSystemApp
                         ListAllAccounts();
                         break;
                     case 7:
-                        // TODO: call your second custom service function here
+                        CloseAccount();
                         break;
                     case 8:
                         exitApp = true;
@@ -258,6 +258,31 @@ namespace BankingSystemApp
             }
             Console.WriteLine($"Total accounts: {customerNames.Count}");
             Console.WriteLine("==================================");
+        }
+        static void CloseAccount()
+        {
+            Console.Write("Enter account number to close: ");
+            string accountNumber = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNumber);
+
+            if (index == -1)
+            {
+                Console.WriteLine("Account not found!");
+                return;
+            }
+
+            string closingName = customerNames[index];
+            double closingBalance = balances[index];
+
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            balances.RemoveAt(index);
+
+            Console.WriteLine("======= Account Closed =======");
+            Console.WriteLine($"Customer: {closingName}");
+            Console.WriteLine($"Account: {accountNumber}");
+            Console.WriteLine($"Final balance returned: {closingBalance}");
+            Console.WriteLine("==============================");
         }
     }
 }
