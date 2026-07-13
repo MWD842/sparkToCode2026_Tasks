@@ -44,16 +44,41 @@
             ////////
 
             // Task 5: Write a program that takes a positive whole number as input and prints the Fibonacci sequence up to that number.
-            Console.WriteLine("Enter a exam score: ");
-            double score = double.Parse(Console.ReadLine());
-            double grade = Math.Round(score);
-            if (grade >= 60)
+            //Console.WriteLine("Enter a exam score: ");
+            //double score = double.Parse(Console.ReadLine());
+            //double grade = Math.Round(score);
+            //if (grade >= 60)
+            //{
+            //    Console.WriteLine("The student has passed the exam.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The student has failed the exam.");
+            //}
+
+            ////////
+
+            // Task 6: Write a program that checks if a given password is strong or weak. A strong password should be at least 8 characters long and should not contain the word "password".
+            Console.WriteLine("Enter the password: ");
+            string password = Console.ReadLine().ToLower();
+            double length = password.Length;
+            string check = password.Contains("password") ? "Yes" : "No";
+
+            if (length <= 8 && check == "No")
             {
-                Console.WriteLine("The student has passed the exam.");
+                Console.WriteLine("Strong Password");
             }
             else
             {
-                Console.WriteLine("The student has failed the exam.");
+                Console.WriteLine("Weak Password");
+                if (length < 8)
+                {
+                    Console.WriteLine("The password is too short. It must be at least 8 characters long.");
+                }
+                if (check == "Yes")
+                {
+                    Console.WriteLine("The password contains the word 'password'. Please choose a different password.");
+                }
             }
 
             ////////
