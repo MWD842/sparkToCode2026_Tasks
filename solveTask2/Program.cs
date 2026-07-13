@@ -99,6 +99,24 @@
             }
 
             /////////
+
+            //Task 7: Write a program that takes two names as input and checks if they are matching. The program should ignore case and whitespace when comparing the names.
+            Console.WriteLine("Enter your name: ");
+            string name1 = Console.ReadLine().ToUpper().Trim();
+            Console.WriteLine("Enter your name: ");
+            string name2 = Console.ReadLine().ToUpper().Trim();
+            if (name1.Equals(name2))
+            {
+                Console.WriteLine("The names are matching.");
+            }
+            else
+            {
+                Console.WriteLine("The names are not matching.");
+            }
+
+            /////////
+            
+
         }
     }
 }
