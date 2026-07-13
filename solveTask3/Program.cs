@@ -1,0 +1,121 @@
+﻿namespace solveTask3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Task 1: Write a program that takes two integers as input and prints the absolute difference between them.
+            //Console.WriteLine("Enter the first number: ");
+            //int num1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the second number: ");
+            //int num2 = int.Parse(Console.ReadLine());
+            //int result = Math.Abs(num1 - num2);
+            //Console.WriteLine("The absolute difference is: " + result);
+
+            ////////
+
+            // Task 2: Write a program that takes a positive whole number as input and prints the factorial of that number.
+            //Console.WriteLine("Enter a number:");
+            //double number = double.Parse(Console.ReadLine());
+            //double Power = Math.Pow(number, 2);
+            //Console.WriteLine($"The square of the {number} is: {Power}");
+            //double squareRoot = Math.Sqrt(number);
+            //Console.WriteLine($"The square root of the {number} is: {squareRoot}");
+
+            ////////
+
+            // Task 3: Write a program that takes a string as input and prints the string in uppercase, lowercase, and the length of the string.
+            //Console.WriteLine("Enter your name: ");
+            //string upper = Console.ReadLine().ToUpper();
+            //string lower = upper.ToLower();
+            //string length = upper.Length.ToString();
+            //Console.WriteLine("Your name in uppercase is: " + upper);
+            //Console.WriteLine("Your name in lowercase is: " + lower);
+            //Console.WriteLine("The length of your name is: " + length);
+
+            ////////
+
+            // Task 4: Write a program that takes a positive whole number as input and prints the multiplication table for that number up to 10.
+            //Console.WriteLine("Enter the number of days of a free trial: ");
+            //int days = int.Parse(Console.ReadLine());
+            //DateTime today = DateTime.Today.AddDays(days);
+            //Console.WriteLine("The free trial will end on: " + today.ToString("D"));
+
+            ////////
+
+            // Task 5: Write a program that takes a positive whole number as input and prints the Fibonacci sequence up to that number.
+            //Console.WriteLine("Enter a exam score: ");
+            //double score = double.Parse(Console.ReadLine());
+            //double grade = Math.Round(score);
+            //if (grade >= 60)
+            //{
+            //    Console.WriteLine("The student has passed the exam.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The student has failed the exam.");
+            //}
+
+            ////////
+
+            // Task 6: Write a program that checks if a given password is strong or weak. A strong password should be at least 8 characters long and should not contain the word "password".
+            //Console.WriteLine("Enter the password: ");
+            //string password = Console.ReadLine().ToLower();
+            //double length = password.Length;
+            //string check = password.Contains("password") ? "Yes" : "No";
+
+            //if (length <= 8 && check == "No")
+            //{
+            //    Console.WriteLine("Strong Password");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Weak Password");
+            //    if (length < 8)
+            //    {
+            //        Console.WriteLine("The password is too short. It must be at least 8 characters long.");
+            //    }
+            //    if (check == "Yes")
+            //    {
+            //        Console.WriteLine("The password contains the word 'password'. Please choose a different password.");
+            //    }
+            //}
+
+            ////////
+
+            //Task 7: Write a program that takes two names as input and checks if they are matching. The program should ignore case and whitespace when comparing the names.
+            //Console.WriteLine("Enter your name: ");
+            //string name1 = Console.ReadLine().ToUpper().Trim();
+            //Console.WriteLine("Enter your name: ");
+            //string name2 = Console.ReadLine().ToUpper().Trim();
+            //if (name1.Equals(name2))
+            //{
+            //    Console.WriteLine("The names are matching.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The names are not matching.");
+            //}
+
+            ////////
+
+            // Task 8: Write a program that takes a membership start date and the number of valid membership days as input, and checks if the membership is still valid or has expired.
+            Console.WriteLine("Enter membership start date (yyyy-MM-dd): ");
+            string startDateInput = Console.ReadLine();
+            DateTime startDate = DateTime.Parse(startDateInput);
+            Console.WriteLine("Enter the number of valid membership days: ");
+            int days = int.Parse(Console.ReadLine());
+            DateTime expiryDate = startDate.AddDays(days);
+            if (expiryDate >= DateTime.Today)
+            {
+                Console.WriteLine("Membership is valid until: " + expiryDate.ToString("D"));
+                Console.WriteLine("Membership status: Active");
+            }
+            else
+            {
+                Console.WriteLine("Membership has expired on: " + expiryDate.ToString("D"));
+                Console.WriteLine("Membership status: Expired");
+            }
+        }
+    }
+}
