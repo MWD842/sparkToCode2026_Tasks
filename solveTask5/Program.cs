@@ -20,24 +20,43 @@
             //}
 
             //////////
-            
+
             // TASK 2
-            List<string> tasks = new List<string>();
+            //List<string> tasks = new List<string>();
 
-            for (int i = 0; i < 5; i++)
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Console.WriteLine($"Enter task {i+1}");
+            //    string task = Console.ReadLine();
+            //    tasks.Add( task );
+            //}
+
+            //Console.WriteLine("\nYour to-do list: ");
+            //int number = 1;
+            //foreach (string task in tasks)
+            //{
+            //    Console.WriteLine($"{number}. {task}");
+            //    number++;
+            //}
+
+            //////////
+            
+            // TASK 3
+            Stack<string> history = new Stack<string>();
+
+            for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine($"Enter task {i+1}");
-                string task = Console.ReadLine();
-                tasks.Add( task );
+                Console.WriteLine($"Enter website {i+1}: ");
+                string url = Console.ReadLine();
+                history.Push(url);
             }
 
-            Console.WriteLine("\nYour to-do list: ");
-            int number = 1;
-            foreach (string task in tasks)
-            {
-                Console.WriteLine($"{number}. {task}");
-                number++;
-            }
+            Console.WriteLine($"\nCurrent page: {history.Peek()}");
+
+            string leftpage = history.Pop();
+            Console.WriteLine($"Pressing back... leaving {leftpage}");
+            Console.WriteLine($"You land on: {history.Peek()}");
+
         }
     }
 }
