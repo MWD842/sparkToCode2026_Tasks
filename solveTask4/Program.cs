@@ -71,6 +71,31 @@
         {
             return 2 * (length + width);
         }
+
+        // TASK 7
+        public static string GetGradeLetter(int score)
+        {
+            if (score >= 90)
+            {
+                return "A";
+            }
+            else if (score >= 80)
+            {
+                return "B";
+            }
+            else if (score >= 70)
+            {
+                return "C";
+            }
+            else if (score >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+        }
         static void Main(string[] args)
         {
             // TASK 1
@@ -117,18 +142,26 @@
             /////////
 
             // TASK 6
-            Console.Write("Enter the length: ");
-            double length = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the length: ");
+            //double length = double.Parse(Console.ReadLine());
 
-            Console.Write("Enter the width: ");
-            double width = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the width: ");
+            //double width = double.Parse(Console.ReadLine());
 
-            double area = CalculateArea(length, width);
-            double perimeter = CalculatePerimeter(length, width);
+            //double area = CalculateArea(length, width);
+            //double perimeter = CalculatePerimeter(length, width);
 
-            Console.WriteLine($"Area: {area}");
-            Console.WriteLine($"Perimeter: {perimeter}");
+            //Console.WriteLine($"Area: {area}");
+            //Console.WriteLine($"Perimeter: {perimeter}");
 
+            /////////
+
+            // TASK 7
+            Console.Write("Enter a score: ");
+            int score = int.Parse(Console.ReadLine());
+
+            string grade = GetGradeLetter(score);
+            Console.WriteLine($"Grade: {grade}");
 
         }
     }
