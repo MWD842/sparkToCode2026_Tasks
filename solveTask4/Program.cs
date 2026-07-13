@@ -60,6 +60,17 @@
         {
             return num % 2 == 0;
         }
+
+        // TASK 6
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
+        }
+
+        public static double CalculatePerimeter(double length, double width)
+        {
+            return 2 * (length + width);
+        }
         static void Main(string[] args)
         {
             // TASK 1
@@ -88,18 +99,37 @@
             // TASK 4
             //DisplayMenu();
 
-            // TASK 5
-            Console.WriteLine("Enter a number: ");
-            int num = int.Parse(Console.ReadLine());
+            /////////
 
-            if (IsEven(num))
-            {
-                Console.WriteLine("The number is even");
-            }
-            else
-            {
-                Console.WriteLine("The number is odd");
-            }
+            // TASK 5
+            //Console.WriteLine("Enter a number: ");
+            //int num = int.Parse(Console.ReadLine());
+
+            //if (IsEven(num))
+            //{
+            //    Console.WriteLine("The number is even");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("The number is odd");
+            //}
+
+            /////////
+
+            // TASK 6
+            Console.Write("Enter the length: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter the width: ");
+            double width = double.Parse(Console.ReadLine());
+
+            double area = CalculateArea(length, width);
+            double perimeter = CalculatePerimeter(length, width);
+
+            Console.WriteLine($"Area: {area}");
+            Console.WriteLine($"Perimeter: {perimeter}");
+
+
         }
     }
 }
