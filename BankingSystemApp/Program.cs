@@ -54,7 +54,7 @@ namespace BankingSystemApp
                         TransferAmount();
                         break;
                     case 6:
-                        // TODO: call your first custom service function here
+                        ListAllAccounts();
                         break;
                     case 7:
                         // TODO: call your second custom service function here
@@ -243,8 +243,22 @@ namespace BankingSystemApp
             Console.WriteLine($"{customerNames[receiverIndex]}'s new balance: {balances[receiverIndex]}");
             Console.WriteLine("==================================");
         }
-        // TODO: write two more void, no-parameter functions here for
-        // your own custom services (option 6 and option 7)
+        static void ListAllAccounts()
+        {
+            if (customerNames.Count == 0)
+            {
+                Console.WriteLine("No accounts have been created yet.");
+                return;
+            }
+
+            Console.WriteLine("\n========== All Accounts ==========");
+            for (int i = 0; i < customerNames.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {customerNames[i]} | {accountNumbers[i]} | {balances[i]}");
+            }
+            Console.WriteLine($"Total accounts: {customerNames.Count}");
+            Console.WriteLine("==================================");
+        }
     }
 }
 
