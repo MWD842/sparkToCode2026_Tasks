@@ -22,7 +22,7 @@ namespace BankingSystemApp
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. <your 1st custom service - choose a name>");
+                Console.WriteLine("6. List All Accounts");
                 Console.WriteLine("7. <your 2nd custom service - choose a name>");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
