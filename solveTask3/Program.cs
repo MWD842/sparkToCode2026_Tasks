@@ -15,12 +15,23 @@
             ////////
 
             // Task 2: Write a program that takes a positive whole number as input and prints the factorial of that number.
-            Console.WriteLine("Enter a number:");
-            double number = double.Parse(Console.ReadLine());
-            double Power = Math.Pow(number, 2);
-            Console.WriteLine($"The square of the {number} is: {Power}");
-            double squareRoot = Math.Sqrt(number);
-            Console.WriteLine($"The square root of the {number} is: {squareRoot}");
+            //Console.WriteLine("Enter a number:");
+            //double number = double.Parse(Console.ReadLine());
+            //double Power = Math.Pow(number, 2);
+            //Console.WriteLine($"The square of the {number} is: {Power}");
+            //double squareRoot = Math.Sqrt(number);
+            //Console.WriteLine($"The square root of the {number} is: {squareRoot}");
+
+            ////////
+
+            // Task 3: Write a program that takes a string as input and prints the string in uppercase, lowercase, and the length of the string.
+            Console.WriteLine("Enter your name: ");
+            string upper = Console.ReadLine().ToUpper();
+            string lower = upper.ToLower();
+            string length = upper.Length.ToString();
+            Console.WriteLine("Your name in uppercase is: " + upper);
+            Console.WriteLine("Your name in lowercase is: " + lower);
+            Console.WriteLine("The length of your name is: " + length);
 
             ////////
         }
