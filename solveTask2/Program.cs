@@ -5,13 +5,28 @@
         static void Main(string[] args)
         {
             //TASK 1: Write a program that counts down from a given number to zero and then prints "Liftoff!".
-            Console.WriteLine("Enter a starting number: ");
-            int start = int.Parse(Console.ReadLine());
-            for (int i = start; i > 0; i--)
+            //Console.WriteLine("Enter a starting number: ");
+            //int start = int.Parse(Console.ReadLine());
+            //for (int i = start; i > 0; i--)
+            //{
+            //    Console.WriteLine(i);
+            //}
+            //Console.WriteLine("Liftoff!");
+
+            /////////
+
+            //Task 2: Write a program that takes a positive whole number N as input and calculates the sum of all whole numbers from 1 to N.
+            Console.WriteLine("Enter a positive whole number N: ");
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 1; i <= n; i++)
             {
-                Console.WriteLine(i);
+                //Console.WriteLine(i);
+                sum = sum + i;
             }
-            Console.WriteLine("Liftoff!");
+            Console.WriteLine($"The sum of all whole numbers from 1 to {n} is: {sum}");
+
+            /////////
         }
     }
 }
