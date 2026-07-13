@@ -59,26 +59,42 @@
             ////////
 
             // Task 6: Write a program that checks if a given password is strong or weak. A strong password should be at least 8 characters long and should not contain the word "password".
-            Console.WriteLine("Enter the password: ");
-            string password = Console.ReadLine().ToLower();
-            double length = password.Length;
-            string check = password.Contains("password") ? "Yes" : "No";
+            //Console.WriteLine("Enter the password: ");
+            //string password = Console.ReadLine().ToLower();
+            //double length = password.Length;
+            //string check = password.Contains("password") ? "Yes" : "No";
 
-            if (length <= 8 && check == "No")
+            //if (length <= 8 && check == "No")
+            //{
+            //    Console.WriteLine("Strong Password");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Weak Password");
+            //    if (length < 8)
+            //    {
+            //        Console.WriteLine("The password is too short. It must be at least 8 characters long.");
+            //    }
+            //    if (check == "Yes")
+            //    {
+            //        Console.WriteLine("The password contains the word 'password'. Please choose a different password.");
+            //    }
+            //}
+
+            ////////
+
+            //Task 7: Write a program that takes two names as input and checks if they are matching. The program should ignore case and whitespace when comparing the names.
+            Console.WriteLine("Enter your name: ");
+            string name1 = Console.ReadLine().ToUpper().Trim();
+            Console.WriteLine("Enter your name: ");
+            string name2 = Console.ReadLine().ToUpper().Trim();
+            if (name1.Equals(name2))
             {
-                Console.WriteLine("Strong Password");
+                Console.WriteLine("The names are matching.");
             }
             else
             {
-                Console.WriteLine("Weak Password");
-                if (length < 8)
-                {
-                    Console.WriteLine("The password is too short. It must be at least 8 characters long.");
-                }
-                if (check == "Yes")
-                {
-                    Console.WriteLine("The password contains the word 'password'. Please choose a different password.");
-                }
+                Console.WriteLine("The names are not matching.");
             }
 
             ////////
