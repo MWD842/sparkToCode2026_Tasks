@@ -317,5 +317,40 @@ namespace OOP_Part1_TaskSolution
                 Console.WriteLine("Both accounts have equal balances.");
             }
         }
+
+        static void RestockProduct()
+        {
+            Product product = ChooseProduct();
+            Console.Write("Enter quantity to restock: ");
+            try
+            {
+                int quantity = int.Parse(Console.ReadLine());
+
+                if (quantity <= 0)
+                {
+                    Console.WriteLine("Quantity must be a positive number.");
+                    return;   
+                }
+
+                product.Restock(quantity);
+
+                if (product.StockQuantity < 10)
+                {
+                    Console.WriteLine("Stock level: Low (" + product.StockQuantity + ")");
+                }
+                else if (product.StockQuantity < 50)
+                {
+                    Console.WriteLine("Stock level: Moderate (" + product.StockQuantity + ")");
+                }
+                else
+                {
+                    Console.WriteLine("Stock level: Well Stocked (" + product.StockQuantity + ")");
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid quantity entered.");
+            }
+        }
     }
 }
