@@ -193,7 +193,17 @@ namespace OOP_Part1_TaskSolution
                 Console.Clear();
 
             }
+        }
 
+        static BankAccount ChooseAccount()
+        {
+            Console.WriteLine("Choose an account (1 or 2): ");
+            string input = Console.ReadLine();
+            if (input == "1")
+            {
+                return account1;
+            }
+            return account2;
         }
     }
 }
