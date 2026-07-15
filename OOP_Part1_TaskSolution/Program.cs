@@ -1,10 +1,58 @@
-﻿namespace OOP_Part1_TaskSolution
+﻿using System;
+
+namespace OOP_Part1_TaskSolution
 {
-    internal class Program
+    public class BankAccount
     {
-        static void Main(string[] args)
+        public int AccountNumber { get; set; }
+        public string HolderName { get; set; }
+        public double Balance { get; set; }
+
+        public void Deposit(double amount)
         {
-            Console.WriteLine("Hello, World!");
+            Balance += amount;
+            SendEmail();
         }
+        
+        public void Withdraw(double amount)
+        {
+            if (Balance < amount)
+            {
+                Balance -= amount;
+            }
+            SendEmail();
+        }
+
+        public double CheckBalance()
+        {
+            PrintInformation();
+            return Balance;
+        }
+
+        void PrintInformation()
+        {
+            Console.WriteLine("Holder's name: " + HolderName);
+            Console.WriteLine("Balance: " + Balance);
+        }
+
+        void SendEmail()
+        {
+            Console.WriteLine("Email notification sent")
+        }
+    }
+
+    public class Student
+    {
+
+    }
+
+    public class Product
+    {
+        
+    }
+
+    public class Program
+    {
+
     }
 }
