@@ -110,7 +110,7 @@ namespace OOP_Part1_TaskSolution
         static BankAccount account1 = new BankAccount { AccountNumber = 20213333, HolderName = "Mowadah", Balance = 120 };
         static BankAccount account2 = new BankAccount { AccountNumber = 20224573, HolderName = "Rahma", Balance = 100 };
 
-        static Student student1 = new Student { Name = "Reem", Address = "Muscat", Grade= 98 };
+        static Student student1 = new Student { Name = "Reem", Address = "Muscat", Grade = 98 };
         static Student student2 = new Student { Name = "Sara", Address = "Ibri", Grade = 96 };
 
         static Product product1 = new Product { ProductName = "Wireless Mouse", Price = 5.500, StockQuantity = 50 };
@@ -204,6 +204,28 @@ namespace OOP_Part1_TaskSolution
                 return account1;
             }
             return account2;
+        }
+
+        static Student ChooseStudent()
+        {
+            Console.WriteLine("Choose a student (1 or 2) ");
+            string input = Console.ReadLine();
+            if (input == "1")
+            {
+                return student1;
+            }
+            return student2;
+        }
+
+        static Product ChooseProduct()
+        {
+            Console.WriteLine("Choose a product  (1 or 2) ");
+            string productChoice = Console.ReadLine();
+            if (productChoice == "1")
+            {
+                return product1;
+            }
+            return product2;
         }
     }
 }
