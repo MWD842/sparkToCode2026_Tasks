@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace OOP_Part1_TaskSolution
 {
@@ -241,6 +242,26 @@ namespace OOP_Part1_TaskSolution
             student.Address = input;
             Console.WriteLine("Address successfully updated!");
             Console.WriteLine("Address updated to: " + student.Address);
+        }
+
+        static void MakeDeposit()
+        {
+            BankAccount account = ChooseAccount();
+
+            Console.Write("Enter amount to deposit: ");
+            double amount;
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid amount.");
+                return;   // leave the method — back to the menu
+            }
+
+            account.Deposit(amount);
+            Console.WriteLine($"{account.HolderName}'s new balance: {account.Balance}");
         }
     }
 }
