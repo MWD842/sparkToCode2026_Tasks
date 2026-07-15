@@ -227,5 +227,10 @@ namespace OOP_Part1_TaskSolution
             }
             return product2;
         }
+
+        static void ViewAccountDetails()
+        {
+            ChooseAccount().CheckBalance();
+        }
     }
 }
