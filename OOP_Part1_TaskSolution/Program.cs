@@ -232,5 +232,15 @@ namespace OOP_Part1_TaskSolution
         {
             ChooseAccount().CheckBalance();
         }
+
+        static void UpdateStudentAddress()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter new address: ");
+            string input = Console.ReadLine();
+            student.Address = input;
+            Console.WriteLine("Address successfully updated!");
+            Console.WriteLine("Address updated to: " + student.Address);
+        }
     }
 }
