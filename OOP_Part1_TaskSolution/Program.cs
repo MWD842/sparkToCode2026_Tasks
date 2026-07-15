@@ -263,5 +263,25 @@ namespace OOP_Part1_TaskSolution
             account.Deposit(amount);
             Console.WriteLine($"{account.HolderName}'s new balance: {account.Balance}");
         }
+
+        static void MakeWithdrawal()
+        {
+            BankAccount account = ChooseAccount();
+
+            Console.Write("Enter amount to withdraw: ");
+            double amount;
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid amount.");
+                return;
+            }
+
+            account.Withdraw(amount);
+            Console.WriteLine($"Updated balance: {account.Balance}");
+        }
     }
 }
