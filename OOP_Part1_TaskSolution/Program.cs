@@ -16,7 +16,7 @@ namespace OOP_Part1_TaskSolution
         
         public void Withdraw(double amount)
         {
-            if (Balance < amount)
+            if (Balance >= amount)
             {
                 Balance -= amount;
             }
@@ -64,7 +64,45 @@ namespace OOP_Part1_TaskSolution
 
     public class Product
     {
-        
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public int StockQuantity { get; set; }
+
+        public void Sell(int quantity)
+        {
+            if (StockQuantity >= quantity)
+            {
+                StockQuantity -= quantity;
+            }
+            else
+            {
+                Console.WriteLine("Not enough stock available!");
+            }
+            LogTransaction();
+        }
+
+        public void Restock(int quantity)
+        {
+            StockQuantity += quantity;
+            LogTransaction();
+        }
+
+        public double GetInventoryValue()
+        {
+            PrintDetails();
+            return Price*StockQuantity;
+        }
+
+        private void PrintDetails()
+        {
+            Console.WriteLine($"Product: {ProductName}\nPrice: {Price}\nStock quantity: {StockQuantity}");
+
+        }
+
+        private void LogTransaction()
+        {
+            Console.WriteLine("Transaction is logged");
+        }
     }
 
     public class Program
