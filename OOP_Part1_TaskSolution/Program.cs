@@ -283,5 +283,14 @@ namespace OOP_Part1_TaskSolution
             account.Withdraw(amount);
             Console.WriteLine($"Updated balance: {account.Balance}");
         }
+
+        static void ViewProductDetails()
+        {
+            Product product = ChooseProduct();
+
+            double inventoryValue = product.GetInventoryValue();
+
+            Console.WriteLine($"Total inventory value: {inventoryValue}");
+        }
     }
 }
