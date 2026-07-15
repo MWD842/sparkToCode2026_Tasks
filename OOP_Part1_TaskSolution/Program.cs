@@ -292,5 +292,14 @@ namespace OOP_Part1_TaskSolution
 
             Console.WriteLine($"Total inventory value: {inventoryValue}");
         }
+
+        static void RegisterStudent()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter your email: ");
+            string email = Console.ReadLine();
+            student.Register(email);
+            Console.WriteLine($"{student.Name} has been registered successfully.");
+        }
     }
 }
