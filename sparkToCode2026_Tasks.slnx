@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="BankingSystemApp/BankingSystemApp.csproj" Id="cdd7a922-b1ca-4b62-92ee-8f2a8f7ae94a" />
   <Project Path="OOP_Part1_TaskSolution/OOP_Part1_TaskSolution.csproj" Id="3b9e3b61-9a6d-47f9-a823-c7a53726c956" />
+  <Project Path="OOP_Part2_TaskSolution/OOP_Part2_TaskSolution.csproj" Id="bf110996-40f1-486d-9d6e-1e8ae3ba11e0" />
   <Project Path="solveTask1/solveTask1.csproj" Id="5dfab2f5-1c22-43c4-a2c7-3c81b7385f56" />
   <Project Path="solveTask2/solveTask2.csproj" Id="62d9e76e-41dc-4935-9991-1464fd559c02" />
   <Project Path="solveTask3/solveTask3.csproj" Id="97bea3a9-0252-4cc2-a6a7-87866faea307" />
