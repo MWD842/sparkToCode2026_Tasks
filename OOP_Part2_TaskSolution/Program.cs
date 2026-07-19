@@ -154,5 +154,33 @@
             Console.WriteLine($"Room {roomNumber} | {roomType} | {price} OMR | Available");
             Console.WriteLine($"Total rooms: {rooms.Count}");
         }
+
+        static void RegisterNewGuest()
+        {
+            Console.Write("Enter guest name: ");
+            string guestName = Console.ReadLine();
+
+            Console.Write("Enter the date: ");
+            string checkInDate = Console.ReadLine();
+
+            Console.Write("Enter the number of nights: ");
+            if (!int.TryParse(Console.ReadLine(), out int nights))
+            {
+                Console.WriteLine("Invalid format. Please enter a number."); return;
+            }
+            if (nights<=0)
+            {
+                Console.WriteLine("Number of nights must be a positive number."); return;
+            }
+
+            string guestId = "G" + (guests.Count + 1).ToString("D3");
+
+            guests.Add(new Guest(guestId, guestName, checkInDate, nights));
+
+            Console.WriteLine("======= Guest Registered =======");
+            Console.WriteLine($"Guest ID: {guestId}");
+            Console.WriteLine($"Name: {guestName} | Check-in: {checkInDate} | Nights: {nights}");
+            Console.WriteLine($"Room: Not Assigned");
+        }
     }
 }
