@@ -121,5 +121,38 @@
                 }
             }
         }
+
+        static void AddNewRoom()
+        {
+            Console.Write("Enter room number: "); //Example: G001, G002
+            string roomNumber = Console.ReadLine();
+
+            Console.Write("Enter room type (Single / Double / Suite): ");
+            string roomType = Console.ReadLine();
+
+            Console.Write("Enter price per night: ");
+            if (!double.TryParse(Console.ReadLine(), out double price))
+            {
+                Console.WriteLine("Invalid price. Please enter a number.");
+                return;
+            }
+            if (price <= 0)
+            {
+                Console.WriteLine("Price must be a positive number.");
+                return;
+            }
+
+            if (rooms.Any(r => r.roomNumber == roomNumber))
+            {
+                Console.WriteLine("A room with that number already exists.");
+                return;
+            }
+
+            rooms.Add(new Room(roomNumber, roomType, price));
+
+            Console.WriteLine("======= Room Added =======");
+            Console.WriteLine($"Room {roomNumber} | {roomType} | {price} OMR | Available");
+            Console.WriteLine($"Total rooms: {rooms.Count}");
+        }
     }
 }
