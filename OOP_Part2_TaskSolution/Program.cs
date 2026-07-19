@@ -414,5 +414,34 @@
                 Console.WriteLine($"{g.guestId} | {g.guestName} | Room {g.roomNumber}");
             }
         }
+
+        static void RoomTypeBreakdown()
+        {
+            string[] types = { "Single", "Double", "Suite" };
+
+            Console.WriteLine("===== Room Type Breakdown =====");
+            foreach (string type in types)
+            {
+                int count = rooms.Count(r => r.roomType == type);
+                if (count == 0)
+                {
+                    Console.WriteLine($"{type}: 0 rooms | Avg price: N/A");
+                }
+                else
+                {
+                    double avg = rooms.Where(r => r.roomType == type).Average(r => r.pricePerNight);
+                    Console.WriteLine($"{type}: {count} rooms | Avg price: {avg:F2} OMR");
+                }
+            }
+
+            if (rooms.Count > 0)
+            {
+                Console.WriteLine($"Overall average price: {rooms.Average(r => r.pricePerNight):F2} OMR");
+            }
+            else
+            {
+                Console.WriteLine("No rooms in the system.");
+            }
+        }
     }
 }
