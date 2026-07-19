@@ -182,5 +182,38 @@
             Console.WriteLine($"Name: {guestName} | Check-in: {checkInDate} | Nights: {nights}");
             Console.WriteLine($"Room: Not Assigned");
         }
+
+        static void BookRoom()
+        {
+            Console.Write("Enter guest ID: ");
+            string guestId = Console.ReadLine();
+            Guest guest = guests.FirstOrDefault(g => g.guestId == guestId);
+            if (guest == null)
+            {
+                Console.WriteLine("Guest not found."); return;
+            }
+
+            Console.Write("Enter room number: ");
+            string roomNumber = Console.ReadLine();
+            Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNumber);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found."); return;
+            }
+
+            if (!room.isAvailable)
+            {
+                Console.WriteLine("Room is already booked."); return;
+            }
+
+            guest.roomNumber = room.roomNumber;
+            room.isAvailable = false;
+
+            Console.WriteLine("======= Booking Confirmed =======");
+            Console.WriteLine($"Guest: {guest.guestName}");
+            Console.WriteLine($"Room: {room.roomNumber} ({room.roomType})");
+            Console.WriteLine($"Price/night: {room.pricePerNight} | Nights: {guest.totalNights}");
+            Console.WriteLine($"Total cost: {guest.calculateTotalCost(room.pricePerNight)} OMR");
+        }
     }
 }
