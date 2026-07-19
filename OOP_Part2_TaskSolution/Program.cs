@@ -244,5 +244,93 @@
                 guest.displayGuest();
             }
         }
+
+        static void SearchFilterRooms()
+        {
+            bool back = false;
+            while (!back)
+            {
+                Console.WriteLine("\n=== Search & Filter Rooms ===");
+                Console.WriteLine("1. Show all available rooms");
+                Console.WriteLine("2. Filter by room type");
+                Console.WriteLine("3. Filter by max price");
+                Console.WriteLine("4. Room price statistics");
+                Console.WriteLine("0. Back");
+                Console.Write("Choose: ");
+
+                int choice;
+                if (!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("Invalid input.");
+                    continue;
+                }
+
+                if (choice == 1)
+                {
+                    var available = rooms.Where(r => r.isAvailable).OrderBy(r => r.pricePerNight);
+                    Console.WriteLine($"Available rooms: {available.Count()}");
+                    foreach (Room r in available) r.displayRoom();
+                }
+                else if (choice == 2)
+                {
+                    Console.Write("Enter room type: ");
+                    string typeInput = Console.ReadLine();
+                    var filter = rooms.Where(r => r.roomType == typeInput);
+
+                    if (!filter.Any())
+                    {
+                        Console.WriteLine("No rooms found for the selected criteria.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Rooms of type {typeInput}: {filter.Count()}");
+                        foreach (Room r in filter) r.displayRoom();
+                    }
+                }
+                else if (choice == 3)
+                {
+                    Console.WriteLine("Enter maximum price: ");
+                    if (!double.TryParse(Console.ReadLine(), out double maxPrice))
+                    {
+                        Console.WriteLine("Invalid price.");
+                        continue;
+                    }
+                    var filter = rooms.Where(r => r.isAvailable && r.pricePerNight <= maxPrice)
+                      .OrderBy(r => r.pricePerNight);
+
+                    if (!filter.Any())
+                    {
+                        Console.WriteLine("No rooms found for the selected criteria.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Available rooms up to {maxPrice} OMR: {filter.Count()}");
+                        foreach (Room r in filter) r.displayRoom();
+                    }
+                }
+                else if (choice == 4)
+                {
+                    if (rooms.Count == 0)
+                    {
+                        Console.WriteLine("No rooms in the system.");
+                        continue;
+                    }
+                    Console.WriteLine("--- Room Price Statistics ---");
+                    Console.WriteLine($"Total rooms: {rooms.Count}");
+                    Console.WriteLine($"Available rooms: {rooms.Count(r => r.isAvailable)}");
+                    Console.WriteLine($"Average price: {rooms.Average(r => r.pricePerNight):F2}");
+                    Console.WriteLine($"Cheapest: {rooms.Min(r => r.pricePerNight):F2}");
+                    Console.WriteLine($"Most expensive: {rooms.Max(r => r.pricePerNight):F2}");
+                }
+                else if (choice == 0)
+                {
+                    back = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option.");
+                }
+            }
+        }
     }
 }
