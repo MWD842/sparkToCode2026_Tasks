@@ -369,5 +369,30 @@
                 Console.WriteLine($"{g.guestName} — Room {g.roomNumber} — {g.totalNights} nights — OMR {cost:F2}");
             }
         }
+
+        static void UpdateRoomPrice()
+        {
+            Console.Write("Enter room number: ");
+            string roomNumber = Console.ReadLine();
+            Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNumber);
+            if (room == null)
+            {
+                Console.WriteLine("Room not found.");
+                return;
+            }
+
+            Console.Write("Enter new price per night: ");
+            if (!double.TryParse(Console.ReadLine(), out double newPrice) || newPrice <= 0)
+            {
+                Console.WriteLine("Invalid price. No change made.");
+                return;
+            }
+
+            double oldPrice = room.pricePerNight;
+            room.pricePerNight = newPrice;
+
+            Console.WriteLine("======= Price Updated =======");
+            Console.WriteLine($"Room {room.roomNumber}: {oldPrice:F2} OMR -> {newPrice:F2} OMR");
+        }
     }
 }
