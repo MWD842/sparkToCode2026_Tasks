@@ -60,8 +60,8 @@
             rooms.Add(new Room("102", "Single", 25));
             rooms.Add(new Room("201", "Double", 40));
             rooms.Add(new Room("202", "Double", 40));
-            rooms.Add(new Room("301", "Suite ", 75));
-            rooms.Add(new Room("302", "Suite ", 75));
+            rooms.Add(new Room("301", "Suite", 75));
+            rooms.Add(new Room("302", "Suite", 75));
 
             bool exit = false;
             while (!exit)
@@ -231,5 +231,18 @@
             }
         }
 
+        static void ViewAllGuests()
+        {
+            if ( guests.Count == 0)
+            {
+                Console.WriteLine("No guests have been registered yet."); return;
+            }
+
+            Console.WriteLine($"===== All Guests ({guests.Count}) =====");
+            foreach (Guest guest in guests.OrderBy(g => g.guestName))
+            {
+                guest.displayGuest();
+            }
+        }
     }
 }
