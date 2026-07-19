@@ -332,7 +332,11 @@
                 }
             }
         }
-
+        static double RoomPrice(string roomNumber)
+        {
+            Room room = rooms.FirstOrDefault(r => r.roomNumber == roomNumber);
+            return room == null ? 0 : room.pricePerNight;
+        }
         static void GuestBookingStatistics()
         {
             Console.WriteLine("===== Guest & Booking Statistics =====");
