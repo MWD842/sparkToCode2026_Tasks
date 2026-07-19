@@ -332,5 +332,42 @@
                 }
             }
         }
+
+        static void GuestBookingStatistics()
+        {
+            Console.WriteLine("===== Guest & Booking Statistics =====");
+            Console.WriteLine($"Total guests: {guests.Count}");
+            Console.WriteLine($"Guests with a room: {guests.Count(g => g.roomNumber != "Not Assigned")}");
+            Console.WriteLine($"Total rooms: {rooms.Count}");
+            Console.WriteLine($"Booked rooms: {rooms.Count(r => !r.isAvailable)}");
+
+            var booked = guests.Where(g => g.roomNumber != "Not Assigned");
+
+            if (!booked.Any())
+            {
+                Console.WriteLine("No active bookings recorded.");
+                return;
+            }
+
+            Console.WriteLine($"Average nights (booked guests): {booked.Average(g => g.totalNights):F2}");
+
+            var top3 = booked
+                .OrderByDescending(g => g.calculateTotalCost(RoomPrice(g.roomNumber)))
+                .Take(3);
+
+            Console.WriteLine("--- Top 3 Spenders ---");
+            foreach (Guest g in top3)
+            {
+                double cost = g.calculateTotalCost(RoomPrice(g.roomNumber));
+                Console.WriteLine($"{g.guestName} | Room {g.roomNumber} | {cost:F2} OMR");
+            }
+
+            Console.WriteLine("--- Booking Summary ---");
+            foreach (Guest g in booked)
+            {
+                double cost = g.calculateTotalCost(RoomPrice(g.roomNumber));
+                Console.WriteLine($"{g.guestName} — Room {g.roomNumber} — {g.totalNights} nights — OMR {cost:F2}");
+            }
+        }
     }
 }
