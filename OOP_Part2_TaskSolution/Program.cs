@@ -60,8 +60,8 @@
             rooms.Add(new Room("102", "Single", 25));
             rooms.Add(new Room("201", "Double", 40));
             rooms.Add(new Room("202", "Double", 40));
-            rooms.Add(new Room("301", "Suite", 75));
-            rooms.Add(new Room("302", "Suite", 75));
+            rooms.Add(new Room("301", "Suite ", 75));
+            rooms.Add(new Room("302", "Suite ", 75));
 
             bool exit = false;
             while (!exit)
@@ -215,5 +215,21 @@
             Console.WriteLine($"Price/night: {room.pricePerNight} | Nights: {guest.totalNights}");
             Console.WriteLine($"Total cost: {guest.calculateTotalCost(room.pricePerNight)} OMR");
         }
+
+        static void ViewAllRooms()
+        {
+            if (rooms.Count == 0)
+            {
+                Console.WriteLine("No rooms have been added yet.");
+                return;
+            }
+
+            Console.WriteLine($"===== All Rooms ({rooms.Count}) =====");
+            foreach (Room room in rooms.OrderBy(r => r.roomNumber))
+            {
+                room.displayRoom();
+            }
+        }
+
     }
 }
