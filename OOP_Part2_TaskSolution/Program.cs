@@ -394,5 +394,25 @@
             Console.WriteLine("======= Price Updated =======");
             Console.WriteLine($"Room {room.roomNumber}: {oldPrice:F2} OMR -> {newPrice:F2} OMR");
         }
+
+        static void GuestLookupByName()
+        {
+            Console.Write("Enter name (or part of it): ");
+            string search = Console.ReadLine();
+
+            var matches = guests.Where(g => g.guestName.ToLower().Contains(search.ToLower()));
+
+            if (!matches.Any())
+            {
+                Console.WriteLine("No guests matched that search.");
+                return;
+            }
+
+            Console.WriteLine($"Matches found: {matches.Count()}");
+            foreach (Guest g in matches)
+            {
+                Console.WriteLine($"{g.guestId} | {g.guestName} | Room {g.roomNumber}");
+            }
+        }
     }
 }
