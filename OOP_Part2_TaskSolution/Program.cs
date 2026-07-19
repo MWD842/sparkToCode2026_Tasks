@@ -124,7 +124,7 @@
 
         static void AddNewRoom()
         {
-            Console.Write("Enter room number: "); //Example: G001, G002
+            Console.Write("Enter room number: "); 
             string roomNumber = Console.ReadLine();
 
             Console.Write("Enter room type (Single / Double / Suite): ");
