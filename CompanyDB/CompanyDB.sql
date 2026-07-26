@@ -87,3 +87,43 @@ GO
 --    ADD CONSTRAINT FK_WORK_ON_PROJECT
 --        FOREIGN KEY (Pnumber) REFERENCES PROJECT(Pnumber);
 --GO
+
+INSERT INTO DEPARTMENT (Depanumber, Depaname, StartDate, ManageSsn)
+VALUES
+    (1, 'Headquarters', '2020-01-01', NULL),
+    (2, 'Research',     '2021-06-15', NULL),
+    (3, 'Development',  '2022-03-10', NULL);
+
+INSERT INTO EMPLOYEE (Ssn, Bdate, Fname, Minit, Lname, Address, Sex, Salary, Depanumber, SuperviseSsn)
+VALUES
+    ('111111111', '1980-05-12', 'James', 'B', 'Borg',   'Muscat, Oman',  'M', 9000.00, 1, NULL),
+    ('222222222', '1988-09-30', 'Aisha', 'K', 'Said',   'Muscat, Oman',  'F', 6500.00, 2, '111111111'),
+    ('333333333', '1990-02-18', 'Omar',  'A', 'Habib',  'Sohar, Oman',   'M', 5500.00, 2, '222222222'),
+    ('444444444', '1992-11-05', 'Layla', 'M', 'Nasser', 'Salalah, Oman', 'F', 5000.00, 3, '111111111'),
+    ('555555555', '1995-07-22', 'Yusuf', 'S', 'Rashid', 'Nizwa, Oman',   'M', 4200.00, 3, '444444444');
+
+UPDATE DEPARTMENT SET ManageSsn = '111111111' WHERE Depanumber = 1;
+UPDATE DEPARTMENT SET ManageSsn = '222222222' WHERE Depanumber = 2;
+UPDATE DEPARTMENT SET ManageSsn = '444444444' WHERE Depanumber = 3;
+
+INSERT INTO LOCATION (Depanumber, Locations)
+VALUES (1, 'Muscat'), (2, 'Muscat'), (2, 'Sohar'), (3, 'Salalah');
+
+INSERT INTO PROJECT (Pnumber, Pname, Location, Depanumber)
+VALUES
+    (10, 'ProductX',    'Muscat',  2),
+    (20, 'ProductY',    'Sohar',   2),
+    (30, 'InternalWeb', 'Salalah', 3);
+
+INSERT INTO DEPENDENT (Depename, Sex, Birthday, Relationship, Ssn)
+VALUES
+    ('Sara', 'F', '2010-04-01', 'Daughter', '111111111'),
+    ('Ali',  'M', '2015-08-20', 'Son',      '222222222');
+
+INSERT INTO WORK_ON (Ssn, Pnumber, Hours)
+VALUES
+    ('333333333', 10, 20.00),
+    ('333333333', 20, 15.00),
+    ('444444444', 30, 30.00),
+    ('555555555', 30, 10.00);
+GO
