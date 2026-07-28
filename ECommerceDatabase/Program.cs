@@ -285,7 +285,54 @@ namespace ECommerceDatabase
         }
         static void AddReview()
         {
-            // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to add a review.");
+                return;
+            }
+
+            var myOrders = context.Orders.Where(o => o.UserId == loggedInUserId).ToList();
+            if (myOrders.Count == 0)
+            {
+                Console.WriteLine("You have no orders to review.");
+                return;
+            }
+
+            Console.WriteLine("Your orders:");
+            foreach (var o in myOrders)
+                Console.WriteLine($"Order {o.OrderId} - {o.OrderDate}");
+
+            Console.Write("Order Id: ");
+            int orderId = int.Parse(Console.ReadLine());
+
+            var order = context.Orders.Include(o => o.Review).FirstOrDefault(o => o.OrderId == orderId);
+            if (order == null || order.UserId != loggedInUserId)
+            {
+                Console.WriteLine("Order not found or does not belong to you.");
+                return;
+            }
+
+            if (order.Review != null)
+            {
+                Console.WriteLine($"This order already has a review: {order.Review.ReviewRating}/5");
+                return;
+            }
+
+            Console.Write("Rating (1-5): ");
+            int rating = int.Parse(Console.ReadLine());
+            if (rating < 1 || rating > 5)
+            {
+                Console.WriteLine("Rating must be between 1 and 5.");
+                return;
+            }
+
+            Console.Write("Comment: ");
+            string comment = Console.ReadLine();
+
+            context.Reviews.Add(new Review { OrderId = orderId, ReviewRating = rating, ReviewComment = comment });
+            context.SaveChanges();
+
+            Console.WriteLine($"Review added for order {orderId}.");
         }
         static void ViewReviewsForProduct()
         {
