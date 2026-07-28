@@ -154,7 +154,26 @@ namespace ECommerceDatabase
         }
         static void ViewAllProducts()
         {
-            // TODO: implement
+            var productList = context.Products.ToList();
+            if (productList.Count == 0)
+            {
+                Console.WriteLine("There are no products to show.");
+                return;
+            }
+
+            var categoryList = context.Categories.ToList();
+
+            Console.WriteLine("\n===== Product List =====");
+            for (int i = 0; i < productList.Count; i++)
+            {
+                var item = productList[i];
+                var match = categoryList.FirstOrDefault(c => c.CategoryId == item.CategoryId);
+                string label = "Uncategorized";
+                if (match != null)
+                    label = match.CategoryName;
+
+                Console.WriteLine($"[{item.ProductId}] {item.ProductName} | {item.ProductPrice} OMR | {label}");
+            }
         }
         static void PlaceOrder()
         {
