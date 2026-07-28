@@ -19,6 +19,9 @@
   <Project Path="BankingSystemApp/BankingSystemApp.csproj">
     <BuildType Solution="Default|*" Project="Release" />
   </Project>
+  <Project Path="EFCoreProject/EFCoreProject.csproj" Id="a5d6e3d6-ad6c-4449-a5eb-72882c6c86fb">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
   <Project Path="OOP_Part1_TaskSolution/OOP_Part1_TaskSolution.csproj">
     <BuildType Solution="Default|*" Project="Release" />
   </Project>
