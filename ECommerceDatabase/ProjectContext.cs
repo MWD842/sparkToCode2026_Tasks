@@ -18,7 +18,7 @@ namespace ECommerceDatabase
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
-            "Server=DESKTOP-IBEP3PJ\\SQLEXPRESS;Database=CompanyProjectDataBase;Trusted_Connection=True;TrustServerCertificate=True;"
+            "Server=DESKTOP-IBEP3PJ\\SQLEXPRESS;Database=ECommerceDatabase;Trusted_Connection=True;TrustServerCertificate=True;"
             );
         }
     }
