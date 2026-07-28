@@ -105,7 +105,52 @@ namespace ECommerceDatabase
         }
         static void AddProduct()
         {
-            // TODO: implement
+            var categoryList = context.Categories.ToList();
+            if (categoryList.Count == 0)
+            {
+                Console.WriteLine("You need at least one category before adding a product.");
+                return;
+            }
+
+            Console.WriteLine("Available categories:");
+            for (int i = 0; i < categoryList.Count; i++)
+                Console.WriteLine($"[{categoryList[i].CategoryId}] {categoryList[i].CategoryName}");
+
+            Console.Write("Product name: ");
+            string productName = Console.ReadLine();
+
+            Console.Write("Price in OMR: ");
+            decimal productPrice;
+            if (!decimal.TryParse(Console.ReadLine(), out productPrice) || productPrice <= 0)
+            {
+                Console.WriteLine("The price must be a number greater than 0.");
+                return;
+            }
+
+            Console.Write("Category Id: ");
+            int chosenCategory;
+            if (!int.TryParse(Console.ReadLine(), out chosenCategory))
+            {
+                Console.WriteLine("Numbers only please.");
+                return;
+            }
+
+            var category = categoryList.FirstOrDefault(c => c.CategoryId == chosenCategory);
+            if (category == null)
+            {
+                Console.WriteLine("That category Id does not exist.");
+                return;
+            }
+
+            var product = new Product();
+            product.ProductName = productName;
+            product.ProductPrice = productPrice;
+            product.CategoryId = category.CategoryId;
+
+            context.Products.Add(product);
+            context.SaveChanges();
+
+            Console.WriteLine($"{product.ProductName} was added under {category.CategoryName}.");
         }
         static void ViewAllProducts()
         {
