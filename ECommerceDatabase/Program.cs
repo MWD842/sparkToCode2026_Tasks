@@ -95,7 +95,13 @@ namespace ECommerceDatabase
         }
         static void AddCategory()
         {
-            // TODO: implement
+            Console.Write("Enter the category name: ");
+            string name = Console.ReadLine();
+
+            context.Categories.Add(new Category { CategoryName = name });
+            context.SaveChanges();
+
+            Console.WriteLine("Category added.");
         }
         static void AddProduct()
         {
