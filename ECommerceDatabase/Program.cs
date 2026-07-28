@@ -78,7 +78,20 @@ namespace ECommerceDatabase
         }
         static void Login()
         {
-            // TODO: implement - on success, set loggedInUserId = <found user's Id>
+            Console.Write("Enter your email: ");
+            string email = Console.ReadLine();
+            Console.Write("Enter your password: ");
+            string password = Console.ReadLine();
+
+            var user = context.Users.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == password);
+            if (user == null)
+            {
+                Console.WriteLine("Invalid email or password.");
+                return;
+            }
+
+            loggedInUserId = user.UserId;
+            Console.WriteLine($"Logged in as {user.UserName}");
         }
         static void AddCategory()
         {
