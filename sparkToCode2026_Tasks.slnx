@@ -1,6 +1,43 @@
 <Solution>
   <Configurations>
+    <BuildType Name="Debug" />
     <BuildType Name="Default" />
-    <Platform Name="Default" />
+    <BuildType Name="Release" />
   </Configurations>
+  <Folder Name="/CompanyDB/">
+    <File Path="CompanyDB/CompanyDB.sql" />
+    <File Path="CompanyDB/CompanyDB.ssmssqlproj" />
+  </Folder>
+  <Folder Name="/DatabaseTasks/">
+    <File Path="DatabaseTasks/Airport MAPPING.jpg" />
+    <File Path="DatabaseTasks/Airport.jpg" />
+    <File Path="DatabaseTasks/College Management System MAPPING.jpg" />
+    <File Path="DatabaseTasks/College Management System.jpg" />
+    <File Path="DatabaseTasks/Company Database MAPPING.jpg" />
+    <File Path="DatabaseTasks/Company Database.jpg" />
+  </Folder>
+  <Project Path="BankingSystemApp/BankingSystemApp.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="OOP_Part1_TaskSolution/OOP_Part1_TaskSolution.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="OOP_Part2_TaskSolution/OOP_Part2_TaskSolution.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="solveTask1/solveTask1.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="solveTask2/solveTask2.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="solveTask3/solveTask3.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="solveTask4/solveTask4.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="solveTask5/solveTask5.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
 </Solution>
