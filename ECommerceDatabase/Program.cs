@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerceDatabase.Models;
+using System;
 using System.Linq;
 namespace ECommerceDatabase
 {
@@ -60,13 +61,20 @@ namespace ECommerceDatabase
                 }
             }
         }
-        // ===================== FUNCTIONS =====================
-        // Every function below talks to the console itself AND uses the
-        // shared "context" field declared above - never create a new
-        // AppDbContext() inside any of these functions.
         static void RegisterUser()
         {
-            // TODO: implement (see Part 3 requirements)
+            Console.Write("Enter your name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter your email: ");
+            string email = Console.ReadLine();
+            Console.Write("Enter your password: ");
+            string password = Console.ReadLine();
+
+            var user = new User { UserName = name, UserEmail = email, UserPassword = password };
+            context.Users.Add(user);
+            context.SaveChanges();
+
+            Console.WriteLine($"User registered with Id {user.UserId}");
         }
         static void Login()
         {
