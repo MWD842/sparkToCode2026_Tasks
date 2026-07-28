@@ -380,10 +380,11 @@ namespace ECommerceDatabase
                     reviewCount++;
                 }
             }
-            static void Logout()
-            {
-                // TODO: implement - reset loggedInUserId back to 0
-            }
+        }
+        static void Logout()
+        {
+            loggedInUserId = 0;
+            Console.WriteLine("Logged out.");
         }
     }
 }
