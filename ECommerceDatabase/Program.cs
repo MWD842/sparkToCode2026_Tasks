@@ -1,4 +1,5 @@
 ﻿using ECommerceDatabase.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 namespace ECommerceDatabase
@@ -241,7 +242,46 @@ namespace ECommerceDatabase
         }
         static void ViewOrderDetails()
         {
-            // TODO: implement
+            Console.Write("Order Id: ");
+            int orderId = int.Parse(Console.ReadLine());
+
+            var order = context.Orders
+                .Include(o => o.OrderProducts)
+                    .ThenInclude(op => op.Product)
+                .Include(o => o.Review)
+                .FirstOrDefault(o => o.OrderId == orderId);
+
+            if (order == null)
+            {
+                Console.WriteLine("Order not found.");
+                return;
+            }
+
+            Console.WriteLine($"\n--- Order {order.OrderId} - {order.OrderDate} ---");
+
+            if (!order.OrderProducts.Any())
+            {
+                Console.WriteLine("This order has no products.");
+                return;
+            }
+
+            decimal total = 0;
+            int itemCount = 0;
+
+            foreach (var op in order.OrderProducts)
+            {
+                decimal lineTotal = op.Product.ProductPrice * op.Quantity;
+                total += lineTotal;
+                itemCount += op.Quantity;
+                Console.WriteLine($"{op.Product.ProductName} x {op.Quantity} @ {op.Product.ProductPrice:C} = {lineTotal:C}");
+            }
+
+            Console.WriteLine($"{itemCount} item(s) - Total: {total:C}");
+
+            if (order.Review == null)
+                Console.WriteLine("No review yet.");
+            else
+                Console.WriteLine($"Review: {order.Review.ReviewRating}/5 - {order.Review.ReviewComment}");
         }
         static void AddReview()
         {
