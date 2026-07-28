@@ -5,9 +5,9 @@ namespace ECommerceDatabase
 {
     public class Program
     {
-        
+
         static ProjectContext context = new ProjectContext();
-        
+
         static int loggedInUserId = 0;
         static void Main(string[] args)
         {
@@ -177,7 +177,34 @@ namespace ECommerceDatabase
         }
         static void PlaceOrder()
         {
-            // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to place an order.");
+                return;
+            }
+
+            var products = context.Products.ToList();
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No products available.");
+                return;
+            }
+
+            var order = new Order { UserId = loggedInUserId, OrderDate = DateTime.Now };
+            context.Orders.Add(order);
+            context.SaveChanges();
+
+            decimal total = 0;
+            bool addingProducts = true;
+
+            while (addingProducts)
+            {
+                Console.WriteLine("Products:");
+                foreach (var p in products)
+                    Console.WriteLine($"{p.ProductId}. {p.ProductName} - {p.ProductPrice:C}");
+
+                Console.Write("Product Id: ");
+            }
         }
         static void ViewMyOrders()
         {
@@ -199,6 +226,7 @@ namespace ECommerceDatabase
         {
             // TODO: implement - reset loggedInUserId back to 0
         }
+
     }
 }
 
