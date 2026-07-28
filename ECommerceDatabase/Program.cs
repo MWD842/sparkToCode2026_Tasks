@@ -208,7 +208,36 @@ namespace ECommerceDatabase
         }
         static void ViewMyOrders()
         {
-            // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId == 0)
+            {
+                Console.WriteLine("You must be logged in to view your orders.");
+                return;
+            }
+
+            var orders = context.Orders.Where(o => o.UserId == loggedInUserId).ToList();
+            if (orders.Count == 0)
+            {
+                Console.WriteLine("You have no orders.");
+                return;
+            }
+
+            var products = context.Products.ToList();
+
+            Console.WriteLine($"You have {orders.Count} order(s):");
+            foreach (var o in orders)
+            {
+                var items = context.OrderProducts.Where(op => op.OrderId == o.OrderId).ToList();
+
+                decimal total = 0;
+                foreach (var i in items)
+                {
+                    var product = products.FirstOrDefault(p => p.ProductId == i.ProductId);
+                    if (product != null)
+                        total += product.ProductPrice * i.Quantity;
+                }
+
+                Console.WriteLine($"Order {o.OrderId} - {o.OrderDate} - {items.Count} item(s) - {total:C}");
+            }
         }
         static void ViewOrderDetails()
         {
