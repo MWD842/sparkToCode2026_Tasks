@@ -336,13 +336,55 @@ namespace ECommerceDatabase
         }
         static void ViewReviewsForProduct()
         {
-            // TODO: implement
-        }
-        static void Logout()
-        {
-            // TODO: implement - reset loggedInUserId back to 0
-        }
+            var products = context.Products.ToList();
+            if (products.Count == 0)
+            {
+                Console.WriteLine("No products exist yet.");
+                return;
+            }
 
+            Console.WriteLine("Products:");
+            foreach (var p in products)
+                Console.WriteLine($"{p.ProductId}. {p.ProductName}");
+
+            Console.Write("Product Id: ");
+            int productId = int.Parse(Console.ReadLine());
+
+            var product = products.FirstOrDefault(p => p.ProductId == productId);
+            if (product == null)
+            {
+                Console.WriteLine("Invalid product Id.");
+                return;
+            }
+
+            var orders = context.Orders
+                .Include(o => o.Review)
+                .Where(o => o.OrderProducts.Any(op => op.ProductId == productId))
+                .ToList();
+
+            if (!orders.Any())
+            {
+                Console.WriteLine("No orders found for this product.");
+                return;
+            }
+
+            int ratingSum = 0;
+            int reviewCount = 0;
+
+            Console.WriteLine($"\n--- Reviews for {product.ProductName} ---");
+            foreach (var o in orders)
+            {
+                if (o.Review != null)
+                {
+                    ratingSum += o.Review.ReviewRating;
+                    reviewCount++;
+                }
+            }
+            static void Logout()
+            {
+                // TODO: implement - reset loggedInUserId back to 0
+            }
+        }
     }
 }
 
