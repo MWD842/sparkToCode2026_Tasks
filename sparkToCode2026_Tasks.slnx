@@ -16,7 +16,14 @@
     <File Path="DatabaseTasks/Company Database MAPPING.jpg" />
     <File Path="DatabaseTasks/Company Database.jpg" />
   </Folder>
+  <Folder Name="/ECommerceDB(ERD&amp;Mapping)/">
+    <File Path="E-Commerce(ERD&amp;Mapping)/E-CommerceERD.jpg" />
+    <File Path="E-Commerce(ERD&amp;Mapping)/E-CommerceMapping.jpg" />
+  </Folder>
   <Project Path="BankingSystemApp/BankingSystemApp.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
+  <Project Path="ECommerceDatabase/ECommerceDatabase.csproj" Id="4d0431fa-e9cb-4fb6-ac2f-18b61b87c6de">
     <BuildType Solution="Default|*" Project="Release" />
   </Project>
   <Project Path="EFCoreProject/EFCoreProject.csproj" Id="a5d6e3d6-ad6c-4449-a5eb-72882c6c86fb">
