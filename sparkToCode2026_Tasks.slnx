@@ -50,4 +50,7 @@
   <Project Path="solveTask5/solveTask5.csproj">
     <BuildType Solution="Default|*" Project="Release" />
   </Project>
+  <Project Path="WebAPIProject/WebAPIProject.csproj" Id="7c464742-16da-4416-a589-8f8c8ef6dd9b">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
 </Solution>
