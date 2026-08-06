@@ -8,7 +8,11 @@ namespace WebAPIProject.Models
         [Key]
         [JsonIgnore]
         public int CategoryId { get; set; }
+
+        [Required]
         public string CategoryName { get; set; }
+
+        [Required]
         public string CategoryDescription { get; set; }
 
         // Relationship
